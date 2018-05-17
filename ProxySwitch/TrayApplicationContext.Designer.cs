@@ -42,8 +42,12 @@ namespace ProxySwitch
             // notifyIcon
             //
             this.notifyIcon.ContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(components);
+            this.notifyIcon.ContextMenuStrip.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.notifyIcon.ContextMenuStrip.Items.Add("&Settings", Properties.Resources.wrench_16, SettingsItem_Click);
+            this.notifyIcon.ContextMenuStrip.Items.Add("&About", Properties.Resources.information_16, AboutItem_Click);
+            this.notifyIcon.ContextMenuStrip.Items.Add(new ToolStripSeparator());
             this.notifyIcon.ContextMenuStrip.Items.Add("&Exit", null, ExitItem_Click);
-            this.notifyIcon.Icon = Properties.Resources.globe_network;
+            this.notifyIcon.Icon = Properties.Resources.proxySwitch;
             this.notifyIcon.Text = "ProxySwitch";
             this.notifyIcon.Visible = true;
             this.notifyIcon.DoubleClick += NotifyIcon_DoubleClick;

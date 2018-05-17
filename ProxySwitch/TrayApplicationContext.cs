@@ -26,11 +26,19 @@ namespace ProxySwitch
 
         #endregion
 
+        #region Private fields
+
+        AboutDialog aboutForm;
+
+        #endregion
+
         #region Constructors
 
         public TrayApplicationContext()
         {
             InitializeComponent();
+
+            aboutForm = new AboutDialog();
 
             UpdateIcon();
 
@@ -54,6 +62,16 @@ namespace ProxySwitch
                 MethodInfo mi = typeof(NotifyIcon).GetMethod("ShowContextMenu", BindingFlags.Instance | BindingFlags.NonPublic);
                 mi.Invoke(notifyIcon, null);
             }
+        }
+
+        private void SettingsItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void AboutItem_Click(object sender, EventArgs e)
+        {
+            aboutForm.ShowDialog();
         }
 
         private void ExitItem_Click(object sender, EventArgs e)

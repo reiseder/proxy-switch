@@ -1,2 +1,2 @@
 # proxy-switch
-Windows tray application that let's you quickly enable or disable the use of a proxy server.
+Tray application that let's you quickly toggle the proxy server settings.
