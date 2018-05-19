@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace ProxySwitch
@@ -38,8 +33,20 @@ namespace ProxySwitch
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void AboutDialog_Load(object sender, EventArgs e)
         {
-            label_version.Text = $"Version {Application.ProductVersion}";
-            label_copyright.Text = $"Copyright © {DateTime.Now.Year} Matthias Reiseder.\nAll rights reserved.";
+            label_versionCopyright.Text = $"Version {Application.ProductVersion}\n" +
+                $"Copyright © {DateTime.Now.Year} Matthias Reiseder.\nAll rights reserved.";
+        }
+
+        /// <summary>
+        /// Handles the LinkClicked event of a RichTextBox control.
+        /// Opens the default browser with the URL of the link.
+        /// Updates
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void RichTextBox_LinkClicked(object sender, LinkClickedEventArgs e)
+        {
+            Process.Start(e.LinkText);
         }
 
         /// <summary>
