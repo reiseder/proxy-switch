@@ -34,7 +34,7 @@ namespace ProxySwitch
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show($"Unexpected error occurred while executing the application!\n\nMessage: { e.Message}\n\nStackTrace: { e.StackTrace}",
+                    MessageBox.Show($"Unexpected error occurred while executing Proxy Switch!\n\nMessage: { e.Message}\n\nStackTrace: { e.StackTrace}",
                         "Unexpected error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally

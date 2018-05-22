@@ -28,7 +28,8 @@ namespace ProxySwitch
 
         #region Private fields
 
-        AboutDialog aboutForm;
+        private AboutDialog aboutDialog;
+        private SettingsDialog settingsDialog;
 
         #endregion
 
@@ -38,7 +39,8 @@ namespace ProxySwitch
         {
             InitializeComponent();
 
-            aboutForm = new AboutDialog();
+            aboutDialog = new AboutDialog();
+            settingsDialog = new SettingsDialog();
 
             UpdateIcon();
 
@@ -65,12 +67,12 @@ namespace ProxySwitch
 
         private void SettingsItem_Click(object sender, EventArgs e)
         {
-            
+            settingsDialog.ShowDialog();
         }
 
         private void AboutItem_Click(object sender, EventArgs e)
         {
-            aboutForm.ShowDialog();
+            aboutDialog.ShowDialog();
         }
 
         private void ExitItem_Click(object sender, EventArgs e)
