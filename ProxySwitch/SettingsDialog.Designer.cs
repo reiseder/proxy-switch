@@ -136,33 +136,6 @@
             this.tableLayoutPanel_layout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.6F));
             this.tableLayoutPanel_layout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.6F));
             this.tableLayoutPanel_layout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 1.4F));
-            this.tableLayoutPanel_layout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel_layout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel_layout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel_layout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel_layout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel_layout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel_layout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel_layout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel_layout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel_layout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel_layout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel_layout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel_layout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel_layout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel_layout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel_layout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel_layout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel_layout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel_layout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel_layout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel_layout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel_layout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel_layout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel_layout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel_layout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel_layout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel_layout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel_layout.Size = new System.Drawing.Size(624, 441);
             this.tableLayoutPanel_layout.TabIndex = 0;
             // 
@@ -298,18 +271,18 @@
             // tableLayoutPanel_themes
             // 
             this.tableLayoutPanel_themes.ColumnCount = 12;
-            this.tableLayoutPanel_themes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2.514767F));
-            this.tableLayoutPanel_themes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.50388F));
-            this.tableLayoutPanel_themes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.17802F));
-            this.tableLayoutPanel_themes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.17802F));
-            this.tableLayoutPanel_themes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.17802F));
-            this.tableLayoutPanel_themes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2.514766F));
-            this.tableLayoutPanel_themes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.939503F));
-            this.tableLayoutPanel_themes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.62416F));
-            this.tableLayoutPanel_themes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.17802F));
-            this.tableLayoutPanel_themes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.17802F));
-            this.tableLayoutPanel_themes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.009613F));
-            this.tableLayoutPanel_themes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2.003204F));
+            this.tableLayoutPanel_themes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2.5F));
+            this.tableLayoutPanel_themes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.5F));
+            this.tableLayoutPanel_themes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.18F));
+            this.tableLayoutPanel_themes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.18F));
+            this.tableLayoutPanel_themes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.18F));
+            this.tableLayoutPanel_themes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2.5F));
+            this.tableLayoutPanel_themes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel_themes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.42F));
+            this.tableLayoutPanel_themes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.18F));
+            this.tableLayoutPanel_themes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.18F));
+            this.tableLayoutPanel_themes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6F));
+            this.tableLayoutPanel_themes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2.18F));
             this.tableLayoutPanel_themes.Controls.Add(this.button_openIconOff, 10, 4);
             this.tableLayoutPanel_themes.Controls.Add(this.button_openIconOn, 10, 3);
             this.tableLayoutPanel_themes.Controls.Add(this.textBox_pathIconOff, 7, 4);
@@ -336,22 +309,22 @@
             this.tableLayoutPanel_themes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel_themes.Location = new System.Drawing.Point(3, 18);
             this.tableLayoutPanel_themes.Name = "tableLayoutPanel_themes";
-            this.tableLayoutPanel_themes.RowCount = 5;
+            this.tableLayoutPanel_themes.RowCount = 6;
+            this.tableLayoutPanel_themes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19F));
             this.tableLayoutPanel_themes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel_themes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel_themes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel_themes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel_themes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel_themes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 1F));
             this.tableLayoutPanel_themes.Size = new System.Drawing.Size(596, 121);
             this.tableLayoutPanel_themes.TabIndex = 0;
             // 
             // button_openIconOff
             // 
             this.button_openIconOff.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button_openIconOff.Location = new System.Drawing.Point(545, 97);
-            this.button_openIconOff.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.button_openIconOff.Location = new System.Drawing.Point(544, 97);
             this.button_openIconOff.Name = "button_openIconOff";
-            this.button_openIconOff.Size = new System.Drawing.Size(29, 23);
+            this.button_openIconOff.Size = new System.Drawing.Size(29, 18);
             this.button_openIconOff.TabIndex = 13;
             this.button_openIconOff.Text = "...";
             this.button_openIconOff.UseVisualStyleBackColor = true;
@@ -360,10 +333,9 @@
             // button_openIconOn
             // 
             this.button_openIconOn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button_openIconOn.Location = new System.Drawing.Point(545, 73);
-            this.button_openIconOn.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.button_openIconOn.Location = new System.Drawing.Point(544, 73);
             this.button_openIconOn.Name = "button_openIconOn";
-            this.button_openIconOn.Size = new System.Drawing.Size(29, 22);
+            this.button_openIconOn.Size = new System.Drawing.Size(29, 18);
             this.button_openIconOn.TabIndex = 10;
             this.button_openIconOn.Text = "...";
             this.button_openIconOn.UseVisualStyleBackColor = true;
@@ -373,28 +345,28 @@
             // 
             this.tableLayoutPanel_themes.SetColumnSpan(this.textBox_pathIconOff, 3);
             this.textBox_pathIconOff.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox_pathIconOff.Location = new System.Drawing.Point(380, 99);
+            this.textBox_pathIconOff.Location = new System.Drawing.Point(380, 97);
             this.textBox_pathIconOff.Name = "textBox_pathIconOff";
             this.textBox_pathIconOff.ReadOnly = true;
-            this.textBox_pathIconOff.Size = new System.Drawing.Size(159, 22);
+            this.textBox_pathIconOff.Size = new System.Drawing.Size(158, 22);
             this.textBox_pathIconOff.TabIndex = 12;
             // 
             // textBox_pathIconOn
             // 
             this.tableLayoutPanel_themes.SetColumnSpan(this.textBox_pathIconOn, 3);
             this.textBox_pathIconOn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox_pathIconOn.Location = new System.Drawing.Point(380, 75);
+            this.textBox_pathIconOn.Location = new System.Drawing.Point(380, 73);
             this.textBox_pathIconOn.Name = "textBox_pathIconOn";
             this.textBox_pathIconOn.ReadOnly = true;
-            this.textBox_pathIconOn.Size = new System.Drawing.Size(159, 22);
+            this.textBox_pathIconOn.Size = new System.Drawing.Size(158, 22);
             this.textBox_pathIconOn.TabIndex = 9;
             // 
             // label_iconOff
             // 
             this.label_iconOff.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label_iconOff.Location = new System.Drawing.Point(321, 96);
+            this.label_iconOff.Location = new System.Drawing.Point(321, 94);
             this.label_iconOff.Name = "label_iconOff";
-            this.label_iconOff.Size = new System.Drawing.Size(53, 25);
+            this.label_iconOff.Size = new System.Drawing.Size(53, 24);
             this.label_iconOff.TabIndex = 11;
             this.label_iconOff.Text = "Icon off:";
             this.label_iconOff.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -402,7 +374,7 @@
             // label_iconOn
             // 
             this.label_iconOn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label_iconOn.Location = new System.Drawing.Point(321, 72);
+            this.label_iconOn.Location = new System.Drawing.Point(321, 70);
             this.label_iconOn.Name = "label_iconOn";
             this.label_iconOn.Size = new System.Drawing.Size(53, 24);
             this.label_iconOn.TabIndex = 8;
@@ -412,9 +384,9 @@
             // label_off2
             // 
             this.label_off2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label_off2.Location = new System.Drawing.Point(497, 0);
+            this.label_off2.Location = new System.Drawing.Point(496, 0);
             this.label_off2.Name = "label_off2";
-            this.label_off2.Size = new System.Drawing.Size(42, 24);
+            this.label_off2.Size = new System.Drawing.Size(42, 22);
             this.label_off2.TabIndex = 3;
             this.label_off2.Text = "Off";
             this.label_off2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -422,9 +394,9 @@
             // label_on2
             // 
             this.label_on2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label_on2.Location = new System.Drawing.Point(449, 0);
+            this.label_on2.Location = new System.Drawing.Point(448, 0);
             this.label_on2.Name = "label_on2";
-            this.label_on2.Size = new System.Drawing.Size(42, 24);
+            this.label_on2.Size = new System.Drawing.Size(42, 22);
             this.label_on2.TabIndex = 2;
             this.label_on2.Text = "On";
             this.label_on2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -434,7 +406,7 @@
             this.label_off1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label_off1.Location = new System.Drawing.Point(211, 0);
             this.label_off1.Name = "label_off1";
-            this.label_off1.Size = new System.Drawing.Size(42, 24);
+            this.label_off1.Size = new System.Drawing.Size(42, 22);
             this.label_off1.TabIndex = 1;
             this.label_off1.Text = "Off";
             this.label_off1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -442,9 +414,9 @@
             // checkBox_reverseIcons
             // 
             this.checkBox_reverseIcons.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkBox_reverseIcons.Location = new System.Drawing.Point(17, 99);
+            this.checkBox_reverseIcons.Location = new System.Drawing.Point(17, 97);
             this.checkBox_reverseIcons.Name = "checkBox_reverseIcons";
-            this.checkBox_reverseIcons.Size = new System.Drawing.Size(140, 19);
+            this.checkBox_reverseIcons.Size = new System.Drawing.Size(140, 18);
             this.checkBox_reverseIcons.TabIndex = 14;
             this.checkBox_reverseIcons.Text = "Reverse icons";
             this.checkBox_reverseIcons.UseVisualStyleBackColor = true;
@@ -454,9 +426,9 @@
             // 
             this.tableLayoutPanel_themes.SetColumnSpan(this.radioButton_customTheme, 3);
             this.radioButton_customTheme.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.radioButton_customTheme.Location = new System.Drawing.Point(307, 51);
+            this.radioButton_customTheme.Location = new System.Drawing.Point(307, 49);
             this.radioButton_customTheme.Name = "radioButton_customTheme";
-            this.radioButton_customTheme.Size = new System.Drawing.Size(136, 18);
+            this.radioButton_customTheme.Size = new System.Drawing.Size(135, 18);
             this.radioButton_customTheme.TabIndex = 7;
             this.radioButton_customTheme.TabStop = true;
             this.radioButton_customTheme.Text = "Custom";
@@ -466,7 +438,7 @@
             // radioButton_alarmTheme
             // 
             this.radioButton_alarmTheme.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.radioButton_alarmTheme.Location = new System.Drawing.Point(17, 51);
+            this.radioButton_alarmTheme.Location = new System.Drawing.Point(17, 49);
             this.radioButton_alarmTheme.Name = "radioButton_alarmTheme";
             this.radioButton_alarmTheme.Size = new System.Drawing.Size(140, 18);
             this.radioButton_alarmTheme.TabIndex = 5;
@@ -478,9 +450,9 @@
             // 
             this.tableLayoutPanel_themes.SetColumnSpan(this.radioButton_trafficLightTheme, 3);
             this.radioButton_trafficLightTheme.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.radioButton_trafficLightTheme.Location = new System.Drawing.Point(307, 27);
+            this.radioButton_trafficLightTheme.Location = new System.Drawing.Point(307, 25);
             this.radioButton_trafficLightTheme.Name = "radioButton_trafficLightTheme";
-            this.radioButton_trafficLightTheme.Size = new System.Drawing.Size(136, 18);
+            this.radioButton_trafficLightTheme.Size = new System.Drawing.Size(135, 18);
             this.radioButton_trafficLightTheme.TabIndex = 6;
             this.radioButton_trafficLightTheme.TabStop = true;
             this.radioButton_trafficLightTheme.Text = "Traffic light";
@@ -489,7 +461,7 @@
             // radioButton_defaultTheme
             // 
             this.radioButton_defaultTheme.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.radioButton_defaultTheme.Location = new System.Drawing.Point(17, 27);
+            this.radioButton_defaultTheme.Location = new System.Drawing.Point(17, 25);
             this.radioButton_defaultTheme.Name = "radioButton_defaultTheme";
             this.radioButton_defaultTheme.Size = new System.Drawing.Size(140, 18);
             this.radioButton_defaultTheme.TabIndex = 4;
@@ -502,7 +474,7 @@
             this.label_on1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label_on1.Location = new System.Drawing.Point(163, 0);
             this.label_on1.Name = "label_on1";
-            this.label_on1.Size = new System.Drawing.Size(42, 24);
+            this.label_on1.Size = new System.Drawing.Size(42, 22);
             this.label_on1.TabIndex = 0;
             this.label_on1.Text = "On";
             this.label_on1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -511,7 +483,7 @@
             // 
             this.pictureBox_defaultIconOn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox_defaultIconOn.Image = global::ProxySwitch.Properties.Resources.networking_green_32;
-            this.pictureBox_defaultIconOn.Location = new System.Drawing.Point(163, 27);
+            this.pictureBox_defaultIconOn.Location = new System.Drawing.Point(163, 25);
             this.pictureBox_defaultIconOn.Name = "pictureBox_defaultIconOn";
             this.pictureBox_defaultIconOn.Size = new System.Drawing.Size(42, 18);
             this.pictureBox_defaultIconOn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -522,7 +494,7 @@
             // 
             this.pictureBox_alarmIconOn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox_alarmIconOn.Image = global::ProxySwitch.Properties.Resources.beacon_light_bw_32;
-            this.pictureBox_alarmIconOn.Location = new System.Drawing.Point(163, 51);
+            this.pictureBox_alarmIconOn.Location = new System.Drawing.Point(163, 49);
             this.pictureBox_alarmIconOn.Name = "pictureBox_alarmIconOn";
             this.pictureBox_alarmIconOn.Size = new System.Drawing.Size(42, 18);
             this.pictureBox_alarmIconOn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -533,7 +505,7 @@
             // 
             this.pictureBox_defaultIconOff.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox_defaultIconOff.Image = global::ProxySwitch.Properties.Resources.networking_32;
-            this.pictureBox_defaultIconOff.Location = new System.Drawing.Point(211, 27);
+            this.pictureBox_defaultIconOff.Location = new System.Drawing.Point(211, 25);
             this.pictureBox_defaultIconOff.Name = "pictureBox_defaultIconOff";
             this.pictureBox_defaultIconOff.Size = new System.Drawing.Size(42, 18);
             this.pictureBox_defaultIconOff.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -544,7 +516,7 @@
             // 
             this.pictureBox_alarmIconOff.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox_alarmIconOff.Image = global::ProxySwitch.Properties.Resources.beacon_light_32;
-            this.pictureBox_alarmIconOff.Location = new System.Drawing.Point(211, 51);
+            this.pictureBox_alarmIconOff.Location = new System.Drawing.Point(211, 49);
             this.pictureBox_alarmIconOff.Name = "pictureBox_alarmIconOff";
             this.pictureBox_alarmIconOff.Size = new System.Drawing.Size(42, 18);
             this.pictureBox_alarmIconOff.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -554,7 +526,7 @@
             // pictureBox_trafficLightIconOn
             // 
             this.pictureBox_trafficLightIconOn.Image = global::ProxySwitch.Properties.Resources.traffic_lights_green_32;
-            this.pictureBox_trafficLightIconOn.Location = new System.Drawing.Point(449, 27);
+            this.pictureBox_trafficLightIconOn.Location = new System.Drawing.Point(448, 25);
             this.pictureBox_trafficLightIconOn.Name = "pictureBox_trafficLightIconOn";
             this.pictureBox_trafficLightIconOn.Size = new System.Drawing.Size(42, 18);
             this.pictureBox_trafficLightIconOn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -565,7 +537,7 @@
             // 
             this.pictureBox_trafficLightIconOff.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox_trafficLightIconOff.Image = global::ProxySwitch.Properties.Resources.traffic_lights_red_32;
-            this.pictureBox_trafficLightIconOff.Location = new System.Drawing.Point(497, 27);
+            this.pictureBox_trafficLightIconOff.Location = new System.Drawing.Point(496, 25);
             this.pictureBox_trafficLightIconOff.Name = "pictureBox_trafficLightIconOff";
             this.pictureBox_trafficLightIconOff.Size = new System.Drawing.Size(42, 18);
             this.pictureBox_trafficLightIconOff.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -575,7 +547,7 @@
             // pictureBox_customIconOn
             // 
             this.pictureBox_customIconOn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox_customIconOn.Location = new System.Drawing.Point(449, 51);
+            this.pictureBox_customIconOn.Location = new System.Drawing.Point(448, 49);
             this.pictureBox_customIconOn.Name = "pictureBox_customIconOn";
             this.pictureBox_customIconOn.Size = new System.Drawing.Size(42, 18);
             this.pictureBox_customIconOn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -585,7 +557,7 @@
             // pictureBox_customIconOff
             // 
             this.pictureBox_customIconOff.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox_customIconOff.Location = new System.Drawing.Point(497, 51);
+            this.pictureBox_customIconOff.Location = new System.Drawing.Point(496, 49);
             this.pictureBox_customIconOff.Name = "pictureBox_customIconOff";
             this.pictureBox_customIconOff.Size = new System.Drawing.Size(42, 18);
             this.pictureBox_customIconOff.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -655,7 +627,6 @@
             this.tableLayoutPanel_general.RowCount = 2;
             this.tableLayoutPanel_general.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel_general.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel_general.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel_general.Size = new System.Drawing.Size(596, 47);
             this.tableLayoutPanel_general.TabIndex = 0;
             // 
