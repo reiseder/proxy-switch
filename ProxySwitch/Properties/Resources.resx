@@ -118,6 +118,24 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="beacon_light" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\beacon_light.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="beacon_light_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\beacon_light_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="beacon_light_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\beacon_light_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="beacon_light_bw" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\beacon_light_bw.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="beacon_light_bw_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\beacon_light_bw_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="beacon_light_bw_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\beacon_light_bw_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="information" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\information.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -127,11 +145,23 @@
   <data name="information_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\information_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="networking" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\networking.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="networking_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\networking_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="networking_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\networking_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="networking_green" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\networking_green.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="networking_red" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\networking_red.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="networking_green_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\networking_green_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="networking_green_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\networking_green_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="proxySwitch" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\proxySwitch.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -141,6 +171,24 @@
   </data>
   <data name="proxySwitch_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\proxySwitch_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="traffic_lights_green" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\traffic_lights_green.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="traffic_lights_green_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\traffic_lights_green_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="traffic_lights_green_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\traffic_lights_green_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="traffic_lights_red" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\traffic_lights_red.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="traffic_lights_red_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\traffic_lights_red_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="traffic_lights_red_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\traffic_lights_red_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="wrench" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\wrench.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

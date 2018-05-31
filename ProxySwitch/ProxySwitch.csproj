@@ -110,14 +110,30 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\beacon_light.ico" />
+    <Content Include="Resources\beacon_light_16.png" />
+    <Content Include="Resources\beacon_light_32.png" />
+    <Content Include="Resources\beacon_light_bw.ico" />
+    <Content Include="Resources\beacon_light_bw_16.png" />
+    <Content Include="Resources\beacon_light_bw_32.png" />
     <Content Include="Resources\information.ico" />
     <Content Include="Resources\information_16.png" />
     <Content Include="Resources\information_32.png" />
+    <Content Include="Resources\networking.ico" />
+    <Content Include="Resources\networking_16.png" />
+    <Content Include="Resources\networking_32.png" />
     <Content Include="Resources\networking_green.ico" />
-    <Content Include="Resources\networking_red.ico" />
+    <Content Include="Resources\networking_green_16.png" />
+    <Content Include="Resources\networking_green_32.png" />
     <Content Include="Resources\proxySwitch.ico" />
     <Content Include="Resources\proxySwitch_16.png" />
     <Content Include="Resources\proxySwitch_32.png" />
+    <Content Include="Resources\traffic_lights_green.ico" />
+    <Content Include="Resources\traffic_lights_green_16.png" />
+    <Content Include="Resources\traffic_lights_green_32.png" />
+    <Content Include="Resources\traffic_lights_red.ico" />
+    <Content Include="Resources\traffic_lights_red_16.png" />
+    <Content Include="Resources\traffic_lights_red_32.png" />
     <Content Include="Resources\wrench.ico" />
     <Content Include="Resources\wrench_16.png" />
     <Content Include="Resources\wrench_32.png" />

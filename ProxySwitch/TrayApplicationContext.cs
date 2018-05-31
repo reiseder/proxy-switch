@@ -119,7 +119,7 @@ namespace ProxySwitch
             if (ReadProxyState())
                 notifyIcon.Icon = Properties.Resources.networking_green;
             else
-                notifyIcon.Icon = Properties.Resources.networking_red;
+                notifyIcon.Icon = Properties.Resources.networking;
         }
 
         #endregion
