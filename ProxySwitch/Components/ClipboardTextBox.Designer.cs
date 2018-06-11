@@ -1,4 +1,4 @@
-﻿namespace ProxySwitch
+﻿namespace ProxySwitch.Components
 {
     partial class ClipboardTextBox
     {

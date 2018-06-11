@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProxySwitch
@@ -20,7 +16,10 @@ namespace ProxySwitch
         [STAThread]
         static void Main()
         {
-            mutex = new Mutex(true, $"Local\\{GetAssemblyGuid()}", out bool createdNew);
+            var guidAttributes = Assembly.GetEntryAssembly().GetCustomAttributes(typeof(GuidAttribute), false);
+            var assemblyGuid = guidAttributes.Length > 0 ? ((GuidAttribute)guidAttributes[0]).Value : string.Empty;
+
+            mutex = new Mutex(true, $"Local\\{assemblyGuid}", out bool createdNew);
 
             if (createdNew)
             {
@@ -28,9 +27,7 @@ namespace ProxySwitch
                 {
                     Application.EnableVisualStyles();
                     Application.SetCompatibleTextRenderingDefault(false);
-
-                    TrayApplicationContext context = new TrayApplicationContext();
-                    Application.Run(context);
+                    Application.Run(new TrayApplicationContext());
                 }
                 catch (Exception e)
                 {
@@ -40,23 +37,10 @@ namespace ProxySwitch
                 finally
                 {
                     mutex.ReleaseMutex();
-                    mutex.Dispose();
                 }
             }
+
+            mutex.Dispose();
         }
-
-        #region Helper methods
-
-        private static string GetAssemblyGuid()
-        {
-            var attributes = Assembly.GetEntryAssembly().GetCustomAttributes(typeof(GuidAttribute), false);
-
-            if (attributes.Length > 0)
-                return ((GuidAttribute)attributes[0]).Value;
-            else
-                return string.Empty;
-        }
-
-        #endregion
     }
 }

@@ -69,12 +69,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClipboardTextBox.cs">
+    <Compile Include="Components\ClipboardTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ClipboardTextBox.Designer.cs">
+    <Compile Include="Components\ClipboardTextBox.Designer.cs">
       <DependentUpon>ClipboardTextBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Enums\Themes.cs" />
+    <Compile Include="EventArguments\ClipboardEventArgs.cs" />
+    <Compile Include="Properties\Settings.cs" />
     <Compile Include="SettingsDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,5 +152,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

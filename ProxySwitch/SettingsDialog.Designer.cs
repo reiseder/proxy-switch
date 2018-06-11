@@ -33,7 +33,7 @@
             this.tableLayoutPanel_layout = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox_proxyServer = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel_proxyServer = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox_proxyPort = new ProxySwitch.ClipboardTextBox(this.components);
+            this.textBox_proxyPort = new ProxySwitch.Components.ClipboardTextBox(this.components);
             this.label_proxyPort = new System.Windows.Forms.Label();
             this.checkBox_bypassProxyLocal = new System.Windows.Forms.CheckBox();
             this.radioButton_overrideProxySettings = new System.Windows.Forms.RadioButton();
@@ -188,7 +188,7 @@
             this.textBox_proxyPort.Name = "textBox_proxyPort";
             this.textBox_proxyPort.Size = new System.Drawing.Size(88, 22);
             this.textBox_proxyPort.TabIndex = 5;
-            this.textBox_proxyPort.PastedText += new ProxySwitch.ClipboardTextBox.ClipboardEventHandler(this.textBox_proxyPort_PastedText);
+            this.textBox_proxyPort.TextPasted += TextBox_proxyPort_TextPasted;
             this.textBox_proxyPort.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_proxyPort_KeyPress);
             // 
             // label_proxyPort
@@ -223,7 +223,7 @@
             this.radioButton_overrideProxySettings.TabStop = true;
             this.radioButton_overrideProxySettings.Text = "Override proxy server settings";
             this.radioButton_overrideProxySettings.UseVisualStyleBackColor = true;
-            this.radioButton_overrideProxySettings.CheckedChanged += new System.EventHandler(this.RadioButton_overrideProxySettings_CheckedChanged);
+            this.radioButton_overrideProxySettings.CheckedChanged += new System.EventHandler(this.RadioButton_ProxySettings_CheckedChanged);
             // 
             // radioButton_keepProxySettings
             // 
@@ -236,6 +236,7 @@
             this.radioButton_keepProxySettings.TabStop = true;
             this.radioButton_keepProxySettings.Text = "Keep proxy server settings";
             this.radioButton_keepProxySettings.UseVisualStyleBackColor = true;
+            this.radioButton_keepProxySettings.CheckedChanged += new System.EventHandler(this.RadioButton_ProxySettings_CheckedChanged);
             // 
             // label_proxyAddress
             // 
@@ -433,7 +434,7 @@
             this.radioButton_customTheme.TabStop = true;
             this.radioButton_customTheme.Text = "Custom";
             this.radioButton_customTheme.UseVisualStyleBackColor = true;
-            this.radioButton_customTheme.CheckedChanged += new System.EventHandler(this.RadioButton_customTheme_CheckedChanged);
+            this.radioButton_customTheme.CheckedChanged += new System.EventHandler(this.RadioButton_theme_CheckedChanged);
             // 
             // radioButton_alarmTheme
             // 
@@ -445,6 +446,7 @@
             this.radioButton_alarmTheme.TabStop = true;
             this.radioButton_alarmTheme.Text = "Alarm";
             this.radioButton_alarmTheme.UseVisualStyleBackColor = true;
+            this.radioButton_alarmTheme.CheckedChanged += new System.EventHandler(this.RadioButton_theme_CheckedChanged);
             // 
             // radioButton_trafficLightTheme
             // 
@@ -457,6 +459,7 @@
             this.radioButton_trafficLightTheme.TabStop = true;
             this.radioButton_trafficLightTheme.Text = "Traffic light";
             this.radioButton_trafficLightTheme.UseVisualStyleBackColor = true;
+            this.radioButton_trafficLightTheme.CheckedChanged += new System.EventHandler(this.RadioButton_theme_CheckedChanged);
             // 
             // radioButton_defaultTheme
             // 
@@ -468,6 +471,7 @@
             this.radioButton_defaultTheme.TabStop = true;
             this.radioButton_defaultTheme.Text = "Default";
             this.radioButton_defaultTheme.UseVisualStyleBackColor = true;
+            this.radioButton_defaultTheme.CheckedChanged += new System.EventHandler(this.RadioButton_theme_CheckedChanged);
             // 
             // label_on1
             // 
@@ -709,7 +713,7 @@
         private System.Windows.Forms.RadioButton radioButton_keepProxySettings;
         private System.Windows.Forms.Label label_proxyAddress;
         private System.Windows.Forms.TextBox textBox_proxyAddress;
-        private ProxySwitch.ClipboardTextBox textBox_proxyPort;
+        private ProxySwitch.Components.ClipboardTextBox textBox_proxyPort;
         private System.Windows.Forms.Button button_openIconOff;
         private System.Windows.Forms.Button button_openIconOn;
         private System.Windows.Forms.TextBox textBox_pathIconOff;
