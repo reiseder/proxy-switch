@@ -1,2 +1,2 @@
 # proxy-switch
-Tray application that let's you quickly toggle the proxy server settings.
+Tray application that lets you quickly toggle the proxy server settings.
