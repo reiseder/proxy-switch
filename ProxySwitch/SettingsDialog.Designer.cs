@@ -591,12 +591,13 @@
             this.button_cancel.TabIndex = 4;
             this.button_cancel.Text = "Cancel";
             this.button_cancel.UseVisualStyleBackColor = true;
-            this.button_cancel.Click += new System.EventHandler(this.Button_cancel_Click);
+            this.button_ok.Click += new System.EventHandler(this.Button_cancel_Click);
             // 
             // button_apply
             // 
             this.tableLayoutPanel_layout.SetColumnSpan(this.button_apply, 3);
             this.button_apply.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button_apply.Enabled = false;
             this.button_apply.Location = new System.Drawing.Point(505, 390);
             this.button_apply.Name = "button_apply";
             this.button_apply.Size = new System.Drawing.Size(108, 31);

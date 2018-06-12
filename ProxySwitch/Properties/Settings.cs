@@ -198,26 +198,39 @@ namespace ProxySwitch.Properties
 
             try
             {
+                if (!Directory.Exists(ICON_DIR))
+                    Directory.CreateDirectory(ICON_DIR);
+
                 if (File.Exists(iconPath))
                 {
-                    if (!Directory.Exists(ICON_DIR))
-                        Directory.CreateDirectory(ICON_DIR);
-
                     if (iconOn)
                     {
                         CustomIconProxyOn = ICON_DIR + iconPath.Split('\\').Last();
-                        File.Copy(iconPath, CustomIconProxyOff, true);
+                        File.Copy(iconPath, CustomIconProxyOn, true);
                         customProxyOn = new Icon(CustomIconProxyOn);
                     }
                     else
                     {
                         CustomIconProxyOff = ICON_DIR + iconPath.Split('\\').Last();
-                        File.Copy(iconPath, CustomIconProxyOn, true);
+                        File.Copy(iconPath, CustomIconProxyOff, true);
                         customProxyOff = new Icon(CustomIconProxyOff);
                     }
-
-                    result = true;
                 }
+                else
+                {
+                    if (iconOn)
+                    {
+                        CustomIconProxyOn = null;
+                        customProxyOn = null;
+                    }
+                    else
+                    {
+                        CustomIconProxyOff = null;
+                        customProxyOff = null;
+                    }
+                }
+
+                result = true;
             }
             catch
             {
