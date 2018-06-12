@@ -1,4 +1,10 @@
-﻿using System.Reflection;
+﻿//
+// Copyright (c) 2018 Matthias Reiseder. All rights reserved.  
+// Licensed under the MIT License. 
+// See LICENSE file in the repository root for full license information.
+//
+
+using System.Reflection;
 using System.Resources;
 using System.Runtime.InteropServices;
 
@@ -35,4 +41,3 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyVersion("1.1.0")]
 [assembly: AssemblyFileVersion("1.1.0")]
 [assembly: NeutralResourcesLanguage("en-US")]
-

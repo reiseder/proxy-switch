@@ -1,4 +1,10 @@
-﻿using Microsoft.Win32;
+﻿//
+// Copyright (c) 2018 Matthias Reiseder. All rights reserved.  
+// Licensed under the MIT License. 
+// See LICENSE file in the repository root for full license information.
+//
+
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Linq;

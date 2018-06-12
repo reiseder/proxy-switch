@@ -48,7 +48,7 @@ namespace ProxySwitch
             this.notifyIcon.ContextMenuStrip.Items.Add(new ToolStripSeparator());
             this.notifyIcon.ContextMenuStrip.Items.Add("&Exit", null, ExitItem_Click);
             this.notifyIcon.Icon = Properties.Resources.proxySwitch;
-            this.notifyIcon.Text = "ProxySwitch";
+            this.notifyIcon.Text = "Proxy Switch";
             this.notifyIcon.Visible = true;
             this.notifyIcon.DoubleClick += NotifyIcon_DoubleClick;
             this.notifyIcon.MouseUp += NotifyIcon_MouseUp;

@@ -1,7 +1,13 @@
-﻿//*********************************************************
+﻿//
+// Copyright (c) 2018 Matthias Reiseder. All rights reserved.  
+// Licensed under the MIT License. 
+// See LICENSE file in the repository root for full license information.
+//
+
+//
 // Source code inspired by this article on Visual C# Kicks
 // http://www.vcskicks.com/clipboard-textbox.php
-//*********************************************************
+//
 
 using System;
 
