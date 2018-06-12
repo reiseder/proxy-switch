@@ -1,4 +1,4 @@
-﻿namespace ProxySwitch
+﻿namespace ProxySwitch.Controls
 {
     partial class SettingsDialog
     {
@@ -591,7 +591,6 @@
             this.button_cancel.TabIndex = 4;
             this.button_cancel.Text = "Cancel";
             this.button_cancel.UseVisualStyleBackColor = true;
-            this.button_ok.Click += new System.EventHandler(this.Button_cancel_Click);
             // 
             // button_apply
             // 
@@ -671,6 +670,7 @@
             this.Name = "SettingsDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Settings";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SettingsDialog_FormClosing);
             this.Load += new System.EventHandler(this.SettingsDialog_Load);
             this.tableLayoutPanel_layout.ResumeLayout(false);
             this.groupBox_proxyServer.ResumeLayout(false);

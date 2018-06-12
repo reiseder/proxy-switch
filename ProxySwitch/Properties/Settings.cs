@@ -240,6 +240,16 @@ namespace ProxySwitch.Properties
             return result;
         }
 
+        /// <summary>
+        /// Checks the icon file exists.
+        /// </summary>
+        /// <param name="iconPath">The icon path.</param>
+        /// <returns><c>True</c> if the icon file exists; otherwise <c>false</c>.</returns>
+        public bool CheckIconFile(string iconPath)
+        {
+            return File.Exists(iconPath);
+        }
+
         #endregion
 
         #region Helper methods

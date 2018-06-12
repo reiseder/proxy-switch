@@ -12,7 +12,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace ProxySwitch
+namespace ProxySwitch.Controls
 {
     /// <summary>
     /// Dialog for changing the settings of the application.
@@ -56,6 +56,80 @@ namespace ProxySwitch
         #region Event handlers
 
         /// <summary>
+        /// Handles the Load event of the SettingsDialog.
+        /// Loads the settings.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void SettingsDialog_Load(object sender, EventArgs e)
+        {
+            LoadSettings();
+
+            detectChangesTimer.Start();
+        }
+
+        /// <summary>
+        /// Handles the FormClosing event of the SettingsDialog.
+        /// Checks if there unsaved changes and saves the settings if the user wants.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="FormClosingEventArgs"/> instance containing the event data.</param>
+        private void SettingsDialog_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            detectChangesTimer.Stop();
+
+            bool applySettings = false;
+            bool cancel = false;
+
+            if (DialogResult == DialogResult.OK)
+            {
+                applySettings = DetectChanges();
+                cancel = false;
+            }
+            else if (DialogResult == DialogResult.Cancel && e.CloseReason == CloseReason.None)
+            {
+                applySettings = false;
+                cancel = false;
+            }
+            else
+            {
+                if (DetectChanges())
+                {
+                    var result = MessageBox.Show("Unsaved changes will be lost!\n\nDo you want to save the settings?", "Unsaved changes", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+
+                    switch (result)
+                    {
+                        case DialogResult.Cancel:
+                            applySettings = false;
+                            cancel = true;
+                            break;
+                        case DialogResult.Yes:
+                            applySettings = true;
+                            cancel = false;
+                            break;
+                        case DialogResult.No:
+                            applySettings = false;
+                            cancel = false;
+                            break;
+                    }
+                }
+            }
+
+            if (!cancel && applySettings)
+            {
+                if (ApplySettings())
+                    DialogResult = DialogResult.OK;
+                else
+                    cancel = true;
+            }
+
+            if (cancel)
+                detectChangesTimer.Start();
+
+            e.Cancel = cancel;
+        }
+
+        /// <summary>
         /// Handles the Tick event of the detectChangesTimer.
         /// Checks if the settings were changed.
         /// </summary>
@@ -69,18 +143,11 @@ namespace ProxySwitch
         }
 
         /// <summary>
-        /// Handles the Load event of the SettingsDialog.
-        /// Loads the settings.
+        /// Handles the CheckedChanged event of the them RadioButton controls.
+        /// Enables or disables the custom theme setting controls.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void SettingsDialog_Load(object sender, EventArgs e)
-        {
-            LoadSettings();
-
-            detectChangesTimer.Start();
-        }
-
         private void RadioButton_theme_CheckedChanged(object sender, EventArgs e)
         {
             if (radioButton_customTheme.Checked)
@@ -103,16 +170,34 @@ namespace ProxySwitch
             }
         }
 
+        /// <summary>
+        /// Handles the Click event of the Button_openIconOn control.
+        /// Opens the custom icon file for the proxy enabled icon.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void Button_openIconOn_Click(object sender, EventArgs e)
         {
             OpenIcon(true);
         }
 
+        /// <summary>
+        /// Handles the Click event of the Button_openIconOff control.
+        /// Opens the custom icon file for the proxy disabled icon.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void Button_openIconOff_Click(object sender, EventArgs e)
         {
             OpenIcon(false);
         }
 
+        /// <summary>
+        /// Handles the CheckedChanged event of the CheckBox_reverseIcons control.
+        /// Updates the preview icons.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void CheckBox_reverseIcons_CheckedChanged(object sender, EventArgs e)
         {
             bool reversed = checkBox_reverseIcons.Checked;
@@ -127,6 +212,12 @@ namespace ProxySwitch
             RefreshCustomIcons();
         }
 
+        /// <summary>
+        /// Handles the CheckedChanged event of the proxy server setting RadioButton controls.
+        /// Enables or disables the proxy server setting controls.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void RadioButton_ProxySettings_CheckedChanged(object sender, EventArgs e)
         {
             if (radioButton_overrideProxySettings.Checked)
@@ -143,12 +234,24 @@ namespace ProxySwitch
             }
         }
 
+        /// <summary>
+        /// Handles the KeyPress event of the TextBox_proxyPort control.
+        /// Prevents the input of non digit characters.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="KeyPressEventArgs"/> instance containing the event data.</param>
         private void TextBox_proxyPort_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Is Digit?
             e.Handled = (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar));
         }
 
+        /// <summary>
+        /// Handles the TextPasted event of the TextBox_proxyPort control.
+        /// Prevents the pasting of text that cannot be converted to a number.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="ClipboardEventArgs"/> instance containing the event data.</param>
         private void TextBox_proxyPort_TextPasted(object sender, ClipboardEventArgs e)
         {
             if (!int.TryParse(e.ClipboardText, out int result))
@@ -158,36 +261,24 @@ namespace ProxySwitch
             }
         }
 
+        /// <summary>
+        /// Handles the Click event of the Button_ok control.
+        /// Sets the DialogResult to OK and closes the dialog.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void Button_ok_Click(object sender, EventArgs e)
         {
-
+            DialogResult = DialogResult.OK;
+            Close();
         }
 
-        private void Button_cancel_Click(object sender, EventArgs e)
-        {
-            //detectChangesTimer.Stop();
-
-            //bool cancel = false;
-
-            //if(DetectChanges())
-            //{
-            //    var result = MessageBox.Show("Do you want to save un")
-            //}
-            //else
-            //    DialogResult = DialogResult.Cancel;
-
-            //if (!cancel)
-            //    this.Close();
-
-            //ApplySettings();
-
-            //button_apply.Enabled = DetectChanges();
-            //detectChangesTimer.Start();
-
-            //DialogResult =
-            
-        }
-
+        /// <summary>
+        /// Handles the Click event of the Button_apply control.
+        /// Applies the settings.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void Button_apply_Click(object sender, EventArgs e)
         {
             detectChangesTimer.Stop();
@@ -195,6 +286,7 @@ namespace ProxySwitch
             ApplySettings();
 
             button_apply.Enabled = DetectChanges();
+
             detectChangesTimer.Start();
         }
 
@@ -261,8 +353,14 @@ namespace ProxySwitch
             checkBox_bypassProxyLocal.Checked = Settings.Instance.BypassProxyServer;
         }
 
-        private void ApplySettings()
+        /// <summary>
+        /// Applies the settings.
+        /// </summary>
+        /// <returns><c>True</c> is successful; otherwise <c>false</c>.</returns>
+        private bool ApplySettings()
         {
+            bool result = false;
+
             try
             {
                 if (DetectChanges())
@@ -279,6 +377,17 @@ namespace ProxySwitch
                     else
                         Settings.Instance.Theme = Themes.Default;
 
+                    if (Settings.Instance.Theme == Themes.Custom)
+                    {
+                        if (!Settings.Instance.CheckIconFile(customIconOffPath) || !Settings.Instance.CheckIconFile(customIconOffPath))
+                        {
+                            MessageBox.Show("The two custom icon files must be set if the custom theme is selected!",
+                                "Icon file not found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                            return false;
+                        }
+                    }
+
                     Settings.Instance.CopyAndSetIcon(false, customIconOffPath);
                     Settings.Instance.CopyAndSetIcon(true, customIconOnPath);
 
@@ -286,18 +395,33 @@ namespace ProxySwitch
 
                     Settings.Instance.OverrideProxySettings = radioButton_overrideProxySettings.Checked;
 
+                    if (Settings.Instance.OverrideProxySettings)
+                    {
+                        if (string.IsNullOrWhiteSpace(textBox_proxyAddress.Text) || string.IsNullOrWhiteSpace(textBox_proxyPort.Text))
+                        {
+                            MessageBox.Show("Proxy server address and port must be set if override proxy server is selected!",
+                                "Proxy server settings not set", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                            return false;
+                        }
+                    }
+
                     Settings.Instance.ProxyServerAddress = textBox_proxyAddress.Text;
                     Settings.Instance.ProxyServerPort = string.IsNullOrWhiteSpace(textBox_proxyPort.Text) ? default(ushort?) : Convert.ToUInt16(textBox_proxyPort.Text);
                     Settings.Instance.BypassProxyServer = checkBox_bypassProxyLocal.Checked;
 
-                    Settings.Instance.Save();
+                    result = Settings.Instance.Save();
                 }
             }
             catch (Exception e)
             {
                 MessageBox.Show($"An error occourd while applying the settings!\n\nError: {e.Message}",
                     "Applying settings failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                result = false;
             }
+
+            return result;
         }
 
         /// <summary>
@@ -309,7 +433,7 @@ namespace ProxySwitch
             OpenFileDialog dlg = new OpenFileDialog()
             {
                 CheckFileExists = true,
-                Filter = "",
+                Filter = "Icon files (*.ico)|*.ico",
                 Multiselect = false
             };
 
@@ -343,7 +467,7 @@ namespace ProxySwitch
         }
 
         /// <summary>
-        /// Detects changes between the saved settings and the settings of dialog.
+        /// Detects changes between the saved settings and the dialog.
         /// </summary>
         /// <returns><c>True</c> if changes were detected; otherwise <c>false</c>.</returns>
         private bool DetectChanges()

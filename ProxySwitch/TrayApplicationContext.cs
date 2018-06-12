@@ -5,6 +5,7 @@
 //
 
 using Microsoft.Win32;
+using ProxySwitch.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
