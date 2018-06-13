@@ -4,33 +4,16 @@
 // See LICENSE file in the repository root for full license information.
 //
 
-using Microsoft.Win32;
 using ProxySwitch.Controls;
 using ProxySwitch.Properties;
 using System;
 using System.Reflection;
-using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace ProxySwitch
 {
-    internal partial class TrayApplicationContext : ApplicationContext
+    internal sealed partial class TrayApplicationContext : ApplicationContext
     {
-        #region Static fields and constants
-
-        [DllImport("wininet.dll")]
-        public static extern bool InternetSetOption(IntPtr hInternet, int dwOption, IntPtr lpBuffer, int dwBufferLength);
-
-        private const int INTERNET_OPTION_SETTINGS_CHANGED = 39;
-        private const int INTERNET_OPTION_REFRESH = 37;
-
-        private const string USER_ROOT = "HKEY_CURRENT_USER";
-        private const string INTERNET_SETTINGS_KEY = "Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings";
-        private const string INTERNET_SETTINGS_FULL_KEY = USER_ROOT + "\\" + INTERNET_SETTINGS_KEY;
-        private const string PROXY_ENABLE_VALUE_NAME = "ProxyEnable";
-
-        #endregion
-
         #region Private fields
 
         private AboutDialog aboutDialog;
@@ -59,7 +42,7 @@ namespace ProxySwitch
 
         private void NotifyIcon_DoubleClick(object sender, EventArgs e)
         {
-            ToggleProxy();
+            RegistryService.Instance.ToggleProxyServer();
             UpdateIcon();
         }
 
@@ -115,29 +98,19 @@ namespace ProxySwitch
         /// </summary>
         private void CreateRefreshIconTimer()
         {
-            refreshIconTimer = new Timer();
-            refreshIconTimer.Interval = Settings.Instance.RefreshInterval * 1000;
+            refreshIconTimer = new Timer
+            {
+                Enabled = false,
+                Interval = Settings.Instance.RefreshInterval * 1000
+            };
+
             refreshIconTimer.Tick += RefreshIconTimer_Tick;
             refreshIconTimer.Start();
         }
 
-        private bool ReadProxyState()
-        {
-            return (int)Registry.GetValue(INTERNET_SETTINGS_FULL_KEY, PROXY_ENABLE_VALUE_NAME, 0) == 1;
-        }
-
-        private void ToggleProxy()
-        {
-            Registry.SetValue(INTERNET_SETTINGS_FULL_KEY, PROXY_ENABLE_VALUE_NAME, ReadProxyState() ? 0 : 1);
-
-            InternetSetOption(IntPtr.Zero, INTERNET_OPTION_SETTINGS_CHANGED, IntPtr.Zero, 0);
-            InternetSetOption(IntPtr.Zero, INTERNET_OPTION_REFRESH, IntPtr.Zero, 0);
-
-        }
-
         private void UpdateIcon()
         {
-            if (ReadProxyState())
+            if (RegistryService.Instance.ProxyEnabled)
                 notifyIcon.Icon = Resources.networking_green;
             else
                 notifyIcon.Icon = Resources.networking;

@@ -97,6 +97,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="RegistryService.cs" />
     <Compile Include="TrayApplicationContext.cs" />
     <Compile Include="TrayApplicationContext.Designer.cs">
       <DependentUpon>TrayApplicationContext.cs</DependentUpon>
