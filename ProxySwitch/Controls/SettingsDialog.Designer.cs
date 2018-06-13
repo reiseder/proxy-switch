@@ -33,7 +33,6 @@
             this.tableLayoutPanel_layout = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox_proxyServer = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel_proxyServer = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox_proxyPort = new ProxySwitch.Components.ClipboardTextBox(this.components);
             this.label_proxyPort = new System.Windows.Forms.Label();
             this.checkBox_bypassProxyLocal = new System.Windows.Forms.CheckBox();
             this.radioButton_overrideProxySettings = new System.Windows.Forms.RadioButton();
@@ -70,8 +69,12 @@
             this.button_apply = new System.Windows.Forms.Button();
             this.groupBox_general = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel_general = new System.Windows.Forms.TableLayoutPanel();
+            this.label_seconds = new System.Windows.Forms.Label();
+            this.label_refreshInterval = new System.Windows.Forms.Label();
             this.checkBox_autoDisable = new System.Windows.Forms.CheckBox();
             this.checkBox_autostart = new System.Windows.Forms.CheckBox();
+            this.textBox_proxyPort = new ProxySwitch.Components.ClipboardTextBox(this.components);
+            this.textBox_refreshInterval = new ProxySwitch.Components.ClipboardTextBox(this.components);
             this.tableLayoutPanel_layout.SuspendLayout();
             this.groupBox_proxyServer.SuspendLayout();
             this.tableLayoutPanel_proxyServer.SuspendLayout();
@@ -180,16 +183,6 @@
             this.tableLayoutPanel_proxyServer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16F));
             this.tableLayoutPanel_proxyServer.Size = new System.Drawing.Size(596, 121);
             this.tableLayoutPanel_proxyServer.TabIndex = 0;
-            // 
-            // textBox_proxyPort
-            // 
-            this.textBox_proxyPort.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox_proxyPort.Location = new System.Drawing.Point(407, 53);
-            this.textBox_proxyPort.Name = "textBox_proxyPort";
-            this.textBox_proxyPort.Size = new System.Drawing.Size(88, 22);
-            this.textBox_proxyPort.TabIndex = 5;
-            this.textBox_proxyPort.TextPasted += TextBox_proxyPort_TextPasted;
-            this.textBox_proxyPort.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_proxyPort_KeyPress);
             // 
             // label_proxyPort
             // 
@@ -620,9 +613,15 @@
             // 
             // tableLayoutPanel_general
             // 
-            this.tableLayoutPanel_general.ColumnCount = 2;
+            this.tableLayoutPanel_general.ColumnCount = 5;
             this.tableLayoutPanel_general.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2.5F));
-            this.tableLayoutPanel_general.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 97.5F));
+            this.tableLayoutPanel_general.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.75F));
+            this.tableLayoutPanel_general.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.25F));
+            this.tableLayoutPanel_general.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.25F));
+            this.tableLayoutPanel_general.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.25F));
+            this.tableLayoutPanel_general.Controls.Add(this.label_seconds, 4, 0);
+            this.tableLayoutPanel_general.Controls.Add(this.textBox_refreshInterval, 3, 0);
+            this.tableLayoutPanel_general.Controls.Add(this.label_refreshInterval, 2, 0);
             this.tableLayoutPanel_general.Controls.Add(this.checkBox_autoDisable, 1, 1);
             this.tableLayoutPanel_general.Controls.Add(this.checkBox_autostart, 1, 0);
             this.tableLayoutPanel_general.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -634,12 +633,32 @@
             this.tableLayoutPanel_general.Size = new System.Drawing.Size(596, 47);
             this.tableLayoutPanel_general.TabIndex = 0;
             // 
+            // label_seconds
+            // 
+            this.label_seconds.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label_seconds.Location = new System.Drawing.Point(499, 0);
+            this.label_seconds.Name = "label_seconds";
+            this.label_seconds.Size = new System.Drawing.Size(94, 23);
+            this.label_seconds.TabIndex = 7;
+            this.label_seconds.Text = "seconds";
+            this.label_seconds.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label_refreshTime
+            // 
+            this.label_refreshInterval.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label_refreshInterval.Location = new System.Drawing.Point(307, 0);
+            this.label_refreshInterval.Name = "label_refreshInterval";
+            this.label_refreshInterval.Size = new System.Drawing.Size(90, 23);
+            this.label_refreshInterval.TabIndex = 2;
+            this.label_refreshInterval.Text = "Refresh interval:";
+            this.label_refreshInterval.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // checkBox_autoDisable
             // 
             this.checkBox_autoDisable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.checkBox_autoDisable.Location = new System.Drawing.Point(17, 26);
             this.checkBox_autoDisable.Name = "checkBox_autoDisable";
-            this.checkBox_autoDisable.Size = new System.Drawing.Size(576, 18);
+            this.checkBox_autoDisable.Size = new System.Drawing.Size(284, 18);
             this.checkBox_autoDisable.TabIndex = 1;
             this.checkBox_autoDisable.Text = "Disable proxy server on start up";
             this.checkBox_autoDisable.UseVisualStyleBackColor = true;
@@ -649,10 +668,30 @@
             this.checkBox_autostart.Dock = System.Windows.Forms.DockStyle.Fill;
             this.checkBox_autostart.Location = new System.Drawing.Point(17, 3);
             this.checkBox_autostart.Name = "checkBox_autostart";
-            this.checkBox_autostart.Size = new System.Drawing.Size(576, 17);
+            this.checkBox_autostart.Size = new System.Drawing.Size(284, 17);
             this.checkBox_autostart.TabIndex = 0;
             this.checkBox_autostart.Text = "Start application with Windows";
             this.checkBox_autostart.UseVisualStyleBackColor = true;
+            // 
+            // textBox_proxyPort
+            // 
+            this.textBox_proxyPort.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox_proxyPort.Location = new System.Drawing.Point(407, 53);
+            this.textBox_proxyPort.Name = "textBox_proxyPort";
+            this.textBox_proxyPort.Size = new System.Drawing.Size(88, 22);
+            this.textBox_proxyPort.TabIndex = 5;
+            this.textBox_proxyPort.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ClipboardTextBox_KeyPress);
+            // 
+            // textBox_refreshInterval
+            // 
+            this.textBox_refreshInterval.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox_refreshInterval.Location = new System.Drawing.Point(403, 3);
+            this.textBox_refreshInterval.Name = "textBox_refreshInterval";
+            this.textBox_refreshInterval.Size = new System.Drawing.Size(90, 22);
+            this.textBox_refreshInterval.TabIndex = 6;
+            this.textBox_refreshInterval.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox_refreshInterval.TextPasted += new System.EventHandler<ProxySwitch.EventArguments.ClipboardEventArgs>(this.ClipboardTextBox_TextPasted);
+            this.textBox_refreshInterval.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ClipboardTextBox_KeyPress);
             // 
             // SettingsDialog
             // 
@@ -689,6 +728,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_customIconOff)).EndInit();
             this.groupBox_general.ResumeLayout(false);
             this.tableLayoutPanel_general.ResumeLayout(false);
+            this.tableLayoutPanel_general.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -736,5 +776,8 @@
         private System.Windows.Forms.PictureBox pictureBox_trafficLightIconOff;
         private System.Windows.Forms.PictureBox pictureBox_customIconOn;
         private System.Windows.Forms.PictureBox pictureBox_customIconOff;
+        private System.Windows.Forms.Label label_seconds;
+        private Components.ClipboardTextBox textBox_refreshInterval;
+        private System.Windows.Forms.Label label_refreshInterval;
     }
 }

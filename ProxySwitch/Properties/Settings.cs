@@ -18,7 +18,7 @@ namespace ProxySwitch.Properties
     /// </summary>
     public sealed class Settings
     {
-        #region Static field an properties
+        #region Static field and properties
 
         private static readonly Lazy<Settings> instance = new Lazy<Settings>(() => new Settings(true));
 
@@ -44,6 +44,8 @@ namespace ProxySwitch.Properties
         /// The singleton instance of the <see cref="Settings"/> class.
         /// </value>
         public static Settings Instance { get { return instance.Value; } }
+
+        public int RefreshInterval { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether Proxy Switch will start with Windows or not.
@@ -277,6 +279,10 @@ namespace ProxySwitch.Properties
                         ReverseIcons = settings.ReverseIcons;
                         StartWithWindows = settings.StartWithWindows;
                         Theme = settings.Theme;
+                        RefreshInterval = settings.RefreshInterval;
+
+                        if (RefreshInterval == 0)
+                            RefreshInterval = 30;
 
                         if (!string.IsNullOrWhiteSpace(CustomIconProxyOff))
                         {
