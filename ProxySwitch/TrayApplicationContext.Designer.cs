@@ -37,7 +37,6 @@ namespace ProxySwitch
         {
             this.components = new System.ComponentModel.Container();
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
-            this.timer_refreshProxyState = new System.Windows.Forms.Timer(this.components);
             // 
             // notifyIcon
             //
@@ -52,17 +51,10 @@ namespace ProxySwitch
             this.notifyIcon.Visible = true;
             this.notifyIcon.DoubleClick += NotifyIcon_DoubleClick;
             this.notifyIcon.MouseUp += NotifyIcon_MouseUp;
-            //
-            // timer_refreshProxyState
-            //
-            this.timer_refreshProxyState.Enabled = false;
-            this.timer_refreshProxyState.Interval = 30000;
-            this.timer_refreshProxyState.Tick += Timer_refreshProxyState_Tick;
         }
 
         #endregion
 
         private System.Windows.Forms.NotifyIcon notifyIcon;
-        private System.Windows.Forms.Timer timer_refreshProxyState;
     }
 }

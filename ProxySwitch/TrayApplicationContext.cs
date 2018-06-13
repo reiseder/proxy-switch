@@ -6,12 +6,10 @@
 
 using Microsoft.Win32;
 using ProxySwitch.Controls;
+using ProxySwitch.Properties;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
-using System.Text;
 using System.Windows.Forms;
 
 namespace ProxySwitch
@@ -38,6 +36,8 @@ namespace ProxySwitch
         private AboutDialog aboutDialog;
         private SettingsDialog settingsDialog;
 
+        private Timer refreshIconTimer;
+
         #endregion
 
         #region Constructors
@@ -50,8 +50,7 @@ namespace ProxySwitch
             settingsDialog = new SettingsDialog();
 
             UpdateIcon();
-
-            timer_refreshProxyState.Start();
+            CreateRefreshIconTimer();
         }
 
         #endregion
@@ -74,7 +73,10 @@ namespace ProxySwitch
 
         private void SettingsItem_Click(object sender, EventArgs e)
         {
-            settingsDialog.ShowDialog();
+            if (settingsDialog.ShowDialog() == DialogResult.OK)
+            {
+
+            }
         }
 
         private void AboutItem_Click(object sender, EventArgs e)
@@ -87,7 +89,7 @@ namespace ProxySwitch
             ExitThread();
         }
 
-        private void Timer_refreshProxyState_Tick(object sender, EventArgs e)
+        private void RefreshIconTimer_Tick(object sender, EventArgs e)
         {
             UpdateIcon();
         }
@@ -98,14 +100,26 @@ namespace ProxySwitch
 
         protected override void ExitThreadCore()
         {
-            timer_refreshProxyState.Stop();
+            refreshIconTimer.Stop();
             notifyIcon.Visible = false;
+
             base.ExitThreadCore();
         }
 
         #endregion
 
         #region Helper methods
+
+        /// <summary>
+        /// Creates and starts the refreshIconTimer.
+        /// </summary>
+        private void CreateRefreshIconTimer()
+        {
+            refreshIconTimer = new Timer();
+            refreshIconTimer.Interval = Settings.Instance.RefreshInterval * 1000;
+            refreshIconTimer.Tick += RefreshIconTimer_Tick;
+            refreshIconTimer.Start();
+        }
 
         private bool ReadProxyState()
         {
@@ -124,9 +138,9 @@ namespace ProxySwitch
         private void UpdateIcon()
         {
             if (ReadProxyState())
-                notifyIcon.Icon = Properties.Resources.networking_green;
+                notifyIcon.Icon = Resources.networking_green;
             else
-                notifyIcon.Icon = Properties.Resources.networking;
+                notifyIcon.Icon = Resources.networking;
         }
 
         #endregion
