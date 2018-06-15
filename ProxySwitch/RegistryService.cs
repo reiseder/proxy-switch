@@ -34,11 +34,6 @@ namespace ProxySwitch
         private const string PROXY_OVERRIDE_VALUE_NAME = "ProxyOverride";
         private const string PROXY_SERVER_VALUE_NAME = "ProxyServer";
 
-        private const string RUN_KEY = "Software\\Microsoft\\Windows\\CurrentVersion\\Run";
-        private const string RUN_FULL_KEY = USER_ROOT + "\\" + RUN_KEY;
-
-        private const string PROXY_SWITCH_VALUE_NAME = "ProxySwitch";
-
         #endregion
 
         #region Properties
@@ -73,22 +68,6 @@ namespace ProxySwitch
         #endregion
 
         #region Methods
-
-        /// <summary>
-        /// Adds Proxy Switch to Windows autostart.
-        /// </summary>
-        public void AddToAutostart()
-        {
-            Registry.SetValue(RUN_FULL_KEY, PROXY_SWITCH_VALUE_NAME, Assembly.GetExecutingAssembly().Location);
-        }
-
-        /// <summary>
-        /// Removes Proxy Switch from Windows autostart.
-        /// </summary>
-        public void RemoveFromAutostart()
-        {
-            Registry.CurrentUser.OpenSubKey(RUN_KEY, true).DeleteValue(PROXY_SWITCH_VALUE_NAME, false);
-        }
 
         /// <summary>
         /// Enables the proxy server and overrides the proxy server settings if the option is enabled.

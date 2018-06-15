@@ -72,7 +72,6 @@
             this.label_seconds = new System.Windows.Forms.Label();
             this.label_refreshInterval = new System.Windows.Forms.Label();
             this.checkBox_autoDisable = new System.Windows.Forms.CheckBox();
-            this.checkBox_autostart = new System.Windows.Forms.CheckBox();
             this.textBox_proxyPort = new ProxySwitch.Components.ClipboardTextBox(this.components);
             this.textBox_refreshInterval = new ProxySwitch.Components.ClipboardTextBox(this.components);
             this.tableLayoutPanel_layout.SuspendLayout();
@@ -622,8 +621,7 @@
             this.tableLayoutPanel_general.Controls.Add(this.label_seconds, 4, 0);
             this.tableLayoutPanel_general.Controls.Add(this.textBox_refreshInterval, 3, 0);
             this.tableLayoutPanel_general.Controls.Add(this.label_refreshInterval, 2, 0);
-            this.tableLayoutPanel_general.Controls.Add(this.checkBox_autoDisable, 1, 1);
-            this.tableLayoutPanel_general.Controls.Add(this.checkBox_autostart, 1, 0);
+            this.tableLayoutPanel_general.Controls.Add(this.checkBox_autoDisable, 1, 0);
             this.tableLayoutPanel_general.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel_general.Location = new System.Drawing.Point(3, 18);
             this.tableLayoutPanel_general.Name = "tableLayoutPanel_general";
@@ -662,16 +660,6 @@
             this.checkBox_autoDisable.TabIndex = 1;
             this.checkBox_autoDisable.Text = "Disable proxy server on start up";
             this.checkBox_autoDisable.UseVisualStyleBackColor = true;
-            // 
-            // checkBox_autostart
-            // 
-            this.checkBox_autostart.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkBox_autostart.Location = new System.Drawing.Point(17, 3);
-            this.checkBox_autostart.Name = "checkBox_autostart";
-            this.checkBox_autostart.Size = new System.Drawing.Size(284, 17);
-            this.checkBox_autostart.TabIndex = 0;
-            this.checkBox_autostart.Text = "Start application with Windows";
-            this.checkBox_autostart.UseVisualStyleBackColor = true;
             // 
             // textBox_proxyPort
             // 
@@ -741,7 +729,6 @@
         private System.Windows.Forms.GroupBox groupBox_general;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel_general;
         private System.Windows.Forms.CheckBox checkBox_autoDisable;
-        private System.Windows.Forms.CheckBox checkBox_autostart;
         private System.Windows.Forms.GroupBox groupBox_themes;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel_themes;
         private System.Windows.Forms.RadioButton radioButton_customTheme;

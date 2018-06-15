@@ -45,15 +45,13 @@ namespace ProxySwitch.Properties
         /// </value>
         public static Settings Instance { get { return instance.Value; } }
 
-        public int RefreshInterval { get; set; }
-
         /// <summary>
-        /// Gets or sets a value indicating whether Proxy Switch will start with Windows or not.
+        /// Gets or sets the interval to refresh proxy server state.
         /// </summary>
         /// <value>
-        ///   <c>True</c> if Proxy Switch starts with Windows; otherwise, <c>false</c>.
+        /// The interval to refresh proxy server state.
         /// </value>
-        public bool StartWithWindows { get; set; }
+        public int RefreshInterval { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether Proxy Switch will disable the proxy server on start up.
@@ -277,7 +275,6 @@ namespace ProxySwitch.Properties
                         ProxyServerAddress = settings.ProxyServerAddress;
                         ProxyServerPort = settings.ProxyServerPort;
                         ReverseIcons = settings.ReverseIcons;
-                        StartWithWindows = settings.StartWithWindows;
                         Theme = settings.Theme;
                         RefreshInterval = settings.RefreshInterval;
 
