@@ -83,6 +83,8 @@ namespace ProxySwitch
 
                     Registry.SetValue(INTERNET_SETTINGS_FULL_KEY, PROXY_SERVER_VALUE_NAME, address);
                 }
+                else
+                    Registry.CurrentUser.OpenSubKey(INTERNET_SETTINGS_KEY).DeleteValue(PROXY_SERVER_VALUE_NAME);
 
                 var proxyOverride = Registry.GetValue(INTERNET_SETTINGS_FULL_KEY, PROXY_OVERRIDE_VALUE_NAME, string.Empty).ToString();
 

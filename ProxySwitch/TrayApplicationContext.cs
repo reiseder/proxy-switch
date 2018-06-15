@@ -29,6 +29,8 @@ namespace ProxySwitch
         {
             InitializeComponent();
 
+            Settings.Instance.SettingsChanged += Settings_SettingsChanged;
+
             aboutDialog = new AboutDialog();
             settingsDialog = new SettingsDialog();
 
@@ -42,6 +44,17 @@ namespace ProxySwitch
         #endregion
 
         #region Event handler
+
+        private void Settings_SettingsChanged(object sender, EventArgs e)
+        {
+            refreshIconTimer.Interval = Settings.Instance.RefreshInterval * 1000;
+            UpdateIcon();
+        }
+
+        private void RefreshIconTimer_Tick(object sender, EventArgs e)
+        {
+            UpdateIcon();
+        }
 
         private void NotifyIcon_DoubleClick(object sender, EventArgs e)
         {
@@ -59,25 +72,19 @@ namespace ProxySwitch
 
         private void SettingsItem_Click(object sender, EventArgs e)
         {
-            if (settingsDialog.ShowDialog() == DialogResult.OK)
-            {
-
-            }
+            if (!settingsDialog.Visible)
+                settingsDialog.ShowDialog();
         }
 
         private void AboutItem_Click(object sender, EventArgs e)
         {
-            aboutDialog.ShowDialog();
+            if (!aboutDialog.Visible)
+                aboutDialog.ShowDialog();
         }
 
         private void ExitItem_Click(object sender, EventArgs e)
         {
             ExitThread();
-        }
-
-        private void RefreshIconTimer_Tick(object sender, EventArgs e)
-        {
-            UpdateIcon();
         }
 
         #endregion
@@ -113,10 +120,27 @@ namespace ProxySwitch
 
         private void UpdateIcon()
         {
-            if (RegistryService.Instance.ProxyEnabled)
-                notifyIcon.Icon = Resources.networking_green;
-            else
-                notifyIcon.Icon = Resources.networking;
+            bool useOnIcon = RegistryService.Instance.ProxyEnabled != Settings.Instance.ReverseIcons;
+
+            switch (Settings.Instance.Theme)
+            {
+                case Enums.Themes.Alarm:
+                    notifyIcon.Icon = useOnIcon ? Resources.beacon_light_bw : Resources.beacon_light;
+                    break;
+                case Enums.Themes.TrafficLight:
+                    notifyIcon.Icon = useOnIcon ? Resources.traffic_lights_green : Resources.traffic_lights_red;
+                    break;
+                case Enums.Themes.Custom:
+                    if (Settings.Instance.CustomProxyOff != null && Settings.Instance.CustomProxyOn != null)
+                        notifyIcon.Icon = useOnIcon ? Settings.Instance.CustomProxyOn : Settings.Instance.CustomProxyOff;
+                    else
+                        notifyIcon.Icon = useOnIcon ? Resources.networking_green : Resources.networking;
+                    break;
+                case Enums.Themes.Default:
+                default:
+                    notifyIcon.Icon = useOnIcon ? Resources.networking_green : Resources.networking;
+                    break;
+            }
         }
 
         #endregion

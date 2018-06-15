@@ -406,17 +406,6 @@ namespace ProxySwitch.Controls
 
                     Settings.Instance.OverrideProxySettings = radioButton_overrideProxySettings.Checked;
 
-                    if (Settings.Instance.OverrideProxySettings)
-                    {
-                        if (string.IsNullOrWhiteSpace(textBox_proxyAddress.Text) || string.IsNullOrWhiteSpace(textBox_proxyPort.Text))
-                        {
-                            MessageBox.Show("Proxy server address and port must be set if override proxy server is selected!",
-                                "Proxy server settings", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-                            return false;
-                        }
-                    }
-
                     Settings.Instance.ProxyServerAddress = textBox_proxyAddress.Text;
                     Settings.Instance.ProxyServerPort = string.IsNullOrWhiteSpace(textBox_proxyPort.Text) ? default(ushort?) : Convert.ToUInt16(textBox_proxyPort.Text);
                     Settings.Instance.BypassProxyServer = checkBox_bypassProxyLocal.Checked;

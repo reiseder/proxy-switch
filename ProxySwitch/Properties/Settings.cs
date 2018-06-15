@@ -35,6 +35,17 @@ namespace ProxySwitch.Properties
 
         #endregion
 
+        #region Delegates and events
+
+        public event EventHandler SettingsChanged;
+        private void OnSettingsChanged()
+        {
+            SettingsChanged?.Invoke(this, new EventArgs());
+        }
+
+
+        #endregion
+
         #region Properties
 
         /// <summary>
@@ -180,6 +191,7 @@ namespace ProxySwitch.Properties
             using (FileStream fs = new FileStream(PATH, FileMode.Create))
             {
                 new XmlSerializer(GetType()).Serialize(fs, this);
+                OnSettingsChanged();
                 result = true;
             }
 
