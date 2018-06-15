@@ -32,6 +32,9 @@ namespace ProxySwitch
             aboutDialog = new AboutDialog();
             settingsDialog = new SettingsDialog();
 
+            if (Settings.Instance.DisableProxyOnStart)
+                RegistryService.Instance.DisableProxyServer();
+
             UpdateIcon();
             CreateRefreshIconTimer();
         }
