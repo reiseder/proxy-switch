@@ -72,8 +72,8 @@
             this.label_seconds = new System.Windows.Forms.Label();
             this.label_refreshInterval = new System.Windows.Forms.Label();
             this.checkBox_autoDisable = new System.Windows.Forms.CheckBox();
-            this.textBox_proxyPort = new ProxySwitch.Components.ClipboardTextBox(this.components);
-            this.textBox_refreshInterval = new ProxySwitch.Components.ClipboardTextBox(this.components);
+            this.textBox_proxyPort = new ClipboardTextBox.ClipboardTextBox(this.components);
+            this.textBox_refreshInterval = new ClipboardTextBox.ClipboardTextBox(this.components);
             this.tableLayoutPanel_layout.SuspendLayout();
             this.groupBox_proxyServer.SuspendLayout();
             this.tableLayoutPanel_proxyServer.SuspendLayout();
@@ -668,6 +668,7 @@
             this.textBox_proxyPort.Name = "textBox_proxyPort";
             this.textBox_proxyPort.Size = new System.Drawing.Size(88, 22);
             this.textBox_proxyPort.TabIndex = 5;
+            this.textBox_proxyPort.TextPasted += new System.EventHandler<ClipboardTextBox.ClipboardEventArgs>(this.ClipboardTextBox_TextPasted);
             this.textBox_proxyPort.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ClipboardTextBox_KeyPress);
             // 
             // textBox_refreshInterval
@@ -678,7 +679,7 @@
             this.textBox_refreshInterval.Size = new System.Drawing.Size(90, 22);
             this.textBox_refreshInterval.TabIndex = 6;
             this.textBox_refreshInterval.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBox_refreshInterval.TextPasted += new System.EventHandler<ProxySwitch.EventArguments.ClipboardEventArgs>(this.ClipboardTextBox_TextPasted);
+            this.textBox_refreshInterval.TextPasted += new System.EventHandler<ClipboardTextBox.ClipboardEventArgs>(this.ClipboardTextBox_TextPasted);
             this.textBox_refreshInterval.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ClipboardTextBox_KeyPress);
             // 
             // SettingsDialog
@@ -741,7 +742,7 @@
         private System.Windows.Forms.RadioButton radioButton_keepProxySettings;
         private System.Windows.Forms.Label label_proxyAddress;
         private System.Windows.Forms.TextBox textBox_proxyAddress;
-        private ProxySwitch.Components.ClipboardTextBox textBox_proxyPort;
+        private ClipboardTextBox.ClipboardTextBox textBox_proxyPort;
         private System.Windows.Forms.Button button_openIconOff;
         private System.Windows.Forms.Button button_openIconOn;
         private System.Windows.Forms.TextBox textBox_pathIconOff;
@@ -764,7 +765,7 @@
         private System.Windows.Forms.PictureBox pictureBox_customIconOn;
         private System.Windows.Forms.PictureBox pictureBox_customIconOff;
         private System.Windows.Forms.Label label_seconds;
-        private Components.ClipboardTextBox textBox_refreshInterval;
+        private ClipboardTextBox.ClipboardTextBox textBox_refreshInterval;
         private System.Windows.Forms.Label label_refreshInterval;
     }
 }

@@ -4,8 +4,8 @@
 // See LICENSE file in the repository root for full license information.
 //
 
+using ClipboardTextBox;
 using ProxySwitch.Enums;
-using ProxySwitch.EventArguments;
 using ProxySwitch.Properties;
 using System;
 using System.Drawing;
