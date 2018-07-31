@@ -72,7 +72,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enums\Themes.cs" />
+    <Compile Include="Enums\Theme.cs" />
     <Compile Include="Properties\Settings.cs" />
     <Compile Include="Controls\SettingsDialog.cs">
       <SubType>Form</SubType>
@@ -142,7 +142,6 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="app.manifest" />
-    <None Include="ProxySwitch.licenseheader" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">

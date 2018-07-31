@@ -1,6 +1,6 @@
 ﻿//
-// Copyright (c) 2018 Matthias Reiseder. All rights reserved.  
-// Licensed under the MIT License. 
+// Copyright (c) 2018 Matthias Reiseder. All rights reserved.
+// Licensed under the MIT License.
 // See LICENSE file in the repository root for full license information.
 //
 
@@ -40,7 +40,7 @@ namespace ProxySwitch.Controls
         private void AboutDialog_Load(object sender, EventArgs e)
         {
             label_versionCopyright.Text = $"Version {Application.ProductVersion}\n" +
-                $"Copyright © {DateTime.Now.Year} Matthias Reiseder.\nAll rights reserved.";
+                $"Copyright © 2018 Matthias Reiseder.\nAll rights reserved.";
         }
 
         /// <summary>

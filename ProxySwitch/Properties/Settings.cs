@@ -1,6 +1,6 @@
 ﻿//
-// Copyright (c) 2018 Matthias Reiseder. All rights reserved.  
-// Licensed under the MIT License. 
+// Copyright (c) 2018 Matthias Reiseder. All rights reserved.
+// Licensed under the MIT License.
 // See LICENSE file in the repository root for full license information.
 //
 
@@ -37,12 +37,17 @@ namespace ProxySwitch.Properties
 
         #region Delegates and events
 
+        /// <summary>
+        /// Occurs when the settings are saved.
+        /// </summary>
         public event EventHandler SettingsChanged;
+        /// <summary>
+        /// Raises the <see cref="SettingsChanged" /> event.
+        /// </summary>
         private void OnSettingsChanged()
         {
             SettingsChanged?.Invoke(this, new EventArgs());
         }
-
 
         #endregion
 
@@ -78,7 +83,7 @@ namespace ProxySwitch.Properties
         /// <value>
         /// The Proxy Switch theme.
         /// </value>
-        public Themes Theme { get; set; }
+        public Theme Theme { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether Proxy Switch will reverse the icons or not.

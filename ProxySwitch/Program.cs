@@ -1,6 +1,6 @@
 ﻿//
-// Copyright (c) 2018 Matthias Reiseder. All rights reserved.  
-// Licensed under the MIT License. 
+// Copyright (c) 2018 Matthias Reiseder. All rights reserved.
+// Licensed under the MIT License.
 // See LICENSE file in the repository root for full license information.
 //
 

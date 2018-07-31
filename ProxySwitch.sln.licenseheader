@@ -1,0 +1,29 @@
+extensions: designer.cs generated.cs
+extensions: .cs .cpp .h
+//
+// Copyright (c) 2018 Matthias Reiseder. All rights reserved.
+// Licensed under the MIT License.
+// See LICENSE file in the repository root for full license information.
+//
+
+extensions: .aspx .ascx
+<%--
+Copyright (c) 2018 Matthias Reiseder. All rights reserved.
+Licensed under the MIT License.
+See LICENSE file in the repository root for full license information.
+--%>
+
+extensions: .vb
+'
+' Copyright (c) 2018 Matthias Reiseder. All rights reserved.
+' Licensed under the MIT License.
+' See LICENSE file in the repository root for full license information.
+'
+
+extensions:  .xml .config .xsd
+
+<!--
+Copyright (c) 2018 Matthias Reiseder. All rights reserved.
+Licensed under the MIT License.
+See LICENSE file in the repository root for full license information.
+-->

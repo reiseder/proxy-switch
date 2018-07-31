@@ -1,6 +1,6 @@
 ﻿//
-// Copyright (c) 2018 Matthias Reiseder. All rights reserved.  
-// Licensed under the MIT License. 
+// Copyright (c) 2018 Matthias Reiseder. All rights reserved.
+// Licensed under the MIT License.
 // See LICENSE file in the repository root for full license information.
 //
 
@@ -124,19 +124,19 @@ namespace ProxySwitch
 
             switch (Settings.Instance.Theme)
             {
-                case Enums.Themes.Alarm:
+                case Enums.Theme.Alarm:
                     notifyIcon.Icon = useOnIcon ? Resources.beacon_light_bw : Resources.beacon_light;
                     break;
-                case Enums.Themes.TrafficLight:
+                case Enums.Theme.TrafficLight:
                     notifyIcon.Icon = useOnIcon ? Resources.traffic_lights_green : Resources.traffic_lights_red;
                     break;
-                case Enums.Themes.Custom:
+                case Enums.Theme.Custom:
                     if (Settings.Instance.CustomProxyOff != null && Settings.Instance.CustomProxyOn != null)
                         notifyIcon.Icon = useOnIcon ? Settings.Instance.CustomProxyOn : Settings.Instance.CustomProxyOff;
                     else
                         notifyIcon.Icon = useOnIcon ? Resources.networking_green : Resources.networking;
                     break;
-                case Enums.Themes.Default:
+                case Enums.Theme.Default:
                 default:
                     notifyIcon.Icon = useOnIcon ? Resources.networking_green : Resources.networking;
                     break;

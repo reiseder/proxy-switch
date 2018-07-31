@@ -1,6 +1,6 @@
 ﻿//
-// Copyright (c) 2018 Matthias Reiseder. All rights reserved.  
-// Licensed under the MIT License. 
+// Copyright (c) 2018 Matthias Reiseder. All rights reserved.
+// Licensed under the MIT License.
 // See LICENSE file in the repository root for full license information.
 //
 
@@ -305,25 +305,25 @@ namespace ProxySwitch.Controls
 
             switch (Settings.Instance.Theme)
             {
-                case Themes.Default:
+                case Theme.Default:
                     radioButton_defaultTheme.Checked = true;
                     radioButton_alarmTheme.Checked = false;
                     radioButton_trafficLightTheme.Checked = false;
                     radioButton_customTheme.Checked = false;
                     break;
-                case Themes.Alarm:
+                case Theme.Alarm:
                     radioButton_defaultTheme.Checked = false;
                     radioButton_alarmTheme.Checked = true;
                     radioButton_trafficLightTheme.Checked = false;
                     radioButton_customTheme.Checked = false;
                     break;
-                case Themes.TrafficLight:
+                case Theme.TrafficLight:
                     radioButton_defaultTheme.Checked = false;
                     radioButton_alarmTheme.Checked = false;
                     radioButton_trafficLightTheme.Checked = true;
                     radioButton_customTheme.Checked = false;
                     break;
-                case Themes.Custom:
+                case Theme.Custom:
                     radioButton_defaultTheme.Checked = false;
                     radioButton_alarmTheme.Checked = false;
                     radioButton_trafficLightTheme.Checked = false;
@@ -380,15 +380,15 @@ namespace ProxySwitch.Controls
                         30 : Convert.ToInt32(textBox_refreshInterval.Text);
 
                     if (radioButton_alarmTheme.Checked)
-                        Settings.Instance.Theme = Themes.Alarm;
+                        Settings.Instance.Theme = Theme.Alarm;
                     else if (radioButton_trafficLightTheme.Checked)
-                        Settings.Instance.Theme = Themes.TrafficLight;
+                        Settings.Instance.Theme = Theme.TrafficLight;
                     else if (radioButton_customTheme.Checked)
-                        Settings.Instance.Theme = Themes.Custom;
+                        Settings.Instance.Theme = Theme.Custom;
                     else
-                        Settings.Instance.Theme = Themes.Default;
+                        Settings.Instance.Theme = Theme.Default;
 
-                    if (Settings.Instance.Theme == Themes.Custom)
+                    if (Settings.Instance.Theme == Theme.Custom)
                     {
                         if (!Settings.Instance.CheckIconFile(customIconOffPath) || !Settings.Instance.CheckIconFile(customIconOffPath))
                         {
@@ -486,16 +486,16 @@ namespace ProxySwitch.Controls
                 {
                     switch (Settings.Instance.Theme)
                     {
-                        case Themes.Default:
+                        case Theme.Default:
                             changes = !radioButton_defaultTheme.Checked;
                             break;
-                        case Themes.Alarm:
+                        case Theme.Alarm:
                             changes = !radioButton_alarmTheme.Checked;
                             break;
-                        case Themes.TrafficLight:
+                        case Theme.TrafficLight:
                             changes = !radioButton_trafficLightTheme.Checked;
                             break;
-                        case Themes.Custom:
+                        case Theme.Custom:
                             changes = !radioButton_customTheme.Checked;
                             break;
                     }
