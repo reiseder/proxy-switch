@@ -133,7 +133,8 @@ namespace ProxySwitch
 
         private void UpdateIcon()
         {
-            bool useOnIcon = RegistryService.Instance.ProxyEnabled != Settings.Instance.ReverseIcons;
+            bool proxyEnabled = RegistryService.Instance.ProxyEnabled;
+            bool useOnIcon = proxyEnabled != Settings.Instance.ReverseIcons;
 
             switch (Settings.Instance.Theme)
             {
@@ -154,6 +155,8 @@ namespace ProxySwitch
                     notifyIcon.Icon = useOnIcon ? Resources.networking_green : Resources.networking;
                     break;
             }
+
+            this.notifyIcon.Text = $"Proxy server is {(proxyEnabled ? "enabled" : "disabled")}";
         }
 
         #endregion
