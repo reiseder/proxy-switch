@@ -33,6 +33,7 @@
             this.tableLayoutPanel_layout = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox_proxyServer = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel_proxyServer = new System.Windows.Forms.TableLayoutPanel();
+            this.textBox_proxyPort = new ClipboardTextBox.ClipboardTextBox(this.components);
             this.label_proxyPort = new System.Windows.Forms.Label();
             this.checkBox_bypassProxyLocal = new System.Windows.Forms.CheckBox();
             this.radioButton_overrideProxySettings = new System.Windows.Forms.RadioButton();
@@ -70,10 +71,10 @@
             this.groupBox_general = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel_general = new System.Windows.Forms.TableLayoutPanel();
             this.label_seconds = new System.Windows.Forms.Label();
+            this.textBox_refreshInterval = new ClipboardTextBox.ClipboardTextBox(this.components);
             this.label_refreshInterval = new System.Windows.Forms.Label();
             this.checkBox_autoDisable = new System.Windows.Forms.CheckBox();
-            this.textBox_proxyPort = new ClipboardTextBox.ClipboardTextBox(this.components);
-            this.textBox_refreshInterval = new ClipboardTextBox.ClipboardTextBox(this.components);
+            this.checkBox_keepProxyServerState = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel_layout.SuspendLayout();
             this.groupBox_proxyServer.SuspendLayout();
             this.tableLayoutPanel_proxyServer.SuspendLayout();
@@ -138,7 +139,7 @@
             this.tableLayoutPanel_layout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.6F));
             this.tableLayoutPanel_layout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.6F));
             this.tableLayoutPanel_layout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 1.4F));
-            this.tableLayoutPanel_layout.Size = new System.Drawing.Size(624, 441);
+            this.tableLayoutPanel_layout.Size = new System.Drawing.Size(780, 551);
             this.tableLayoutPanel_layout.TabIndex = 0;
             // 
             // groupBox_proxyServer
@@ -146,10 +147,12 @@
             this.tableLayoutPanel_layout.SetColumnSpan(this.groupBox_proxyServer, 16);
             this.groupBox_proxyServer.Controls.Add(this.tableLayoutPanel_proxyServer);
             this.groupBox_proxyServer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox_proxyServer.Location = new System.Drawing.Point(11, 231);
+            this.groupBox_proxyServer.Location = new System.Drawing.Point(14, 293);
+            this.groupBox_proxyServer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox_proxyServer.Name = "groupBox_proxyServer";
+            this.groupBox_proxyServer.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel_layout.SetRowSpan(this.groupBox_proxyServer, 4);
-            this.groupBox_proxyServer.Size = new System.Drawing.Size(602, 142);
+            this.groupBox_proxyServer.Size = new System.Drawing.Size(744, 180);
             this.groupBox_proxyServer.TabIndex = 2;
             this.groupBox_proxyServer.TabStop = false;
             this.groupBox_proxyServer.Text = "Proxy server";
@@ -172,7 +175,8 @@
             this.tableLayoutPanel_proxyServer.Controls.Add(this.label_proxyAddress, 2, 2);
             this.tableLayoutPanel_proxyServer.Controls.Add(this.textBox_proxyAddress, 3, 2);
             this.tableLayoutPanel_proxyServer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel_proxyServer.Location = new System.Drawing.Point(3, 18);
+            this.tableLayoutPanel_proxyServer.Location = new System.Drawing.Point(4, 23);
+            this.tableLayoutPanel_proxyServer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel_proxyServer.Name = "tableLayoutPanel_proxyServer";
             this.tableLayoutPanel_proxyServer.RowCount = 5;
             this.tableLayoutPanel_proxyServer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21F));
@@ -180,15 +184,27 @@
             this.tableLayoutPanel_proxyServer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21F));
             this.tableLayoutPanel_proxyServer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21F));
             this.tableLayoutPanel_proxyServer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16F));
-            this.tableLayoutPanel_proxyServer.Size = new System.Drawing.Size(596, 121);
+            this.tableLayoutPanel_proxyServer.Size = new System.Drawing.Size(736, 153);
             this.tableLayoutPanel_proxyServer.TabIndex = 0;
+            // 
+            // textBox_proxyPort
+            // 
+            this.textBox_proxyPort.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox_proxyPort.Location = new System.Drawing.Point(505, 68);
+            this.textBox_proxyPort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox_proxyPort.Name = "textBox_proxyPort";
+            this.textBox_proxyPort.Size = new System.Drawing.Size(108, 26);
+            this.textBox_proxyPort.TabIndex = 5;
+            this.textBox_proxyPort.TextPasted += new System.EventHandler<ClipboardTextBox.ClipboardEventArgs>(this.ClipboardTextBox_TextPasted);
+            this.textBox_proxyPort.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ClipboardTextBox_KeyPress);
             // 
             // label_proxyPort
             // 
             this.label_proxyPort.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label_proxyPort.Location = new System.Drawing.Point(313, 50);
+            this.label_proxyPort.Location = new System.Drawing.Point(389, 64);
+            this.label_proxyPort.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_proxyPort.Name = "label_proxyPort";
-            this.label_proxyPort.Size = new System.Drawing.Size(88, 25);
+            this.label_proxyPort.Size = new System.Drawing.Size(108, 32);
             this.label_proxyPort.TabIndex = 4;
             this.label_proxyPort.Text = "Port:";
             this.label_proxyPort.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -197,9 +213,10 @@
             // 
             this.tableLayoutPanel_proxyServer.SetColumnSpan(this.checkBox_bypassProxyLocal, 5);
             this.checkBox_bypassProxyLocal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkBox_bypassProxyLocal.Location = new System.Drawing.Point(31, 78);
+            this.checkBox_bypassProxyLocal.Location = new System.Drawing.Point(40, 100);
+            this.checkBox_bypassProxyLocal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBox_bypassProxyLocal.Name = "checkBox_bypassProxyLocal";
-            this.checkBox_bypassProxyLocal.Size = new System.Drawing.Size(562, 19);
+            this.checkBox_bypassProxyLocal.Size = new System.Drawing.Size(692, 24);
             this.checkBox_bypassProxyLocal.TabIndex = 6;
             this.checkBox_bypassProxyLocal.Text = "Bypass proxy server for local addresses";
             this.checkBox_bypassProxyLocal.UseVisualStyleBackColor = true;
@@ -208,9 +225,10 @@
             // 
             this.tableLayoutPanel_proxyServer.SetColumnSpan(this.radioButton_overrideProxySettings, 6);
             this.radioButton_overrideProxySettings.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.radioButton_overrideProxySettings.Location = new System.Drawing.Point(17, 28);
+            this.radioButton_overrideProxySettings.Location = new System.Drawing.Point(22, 36);
+            this.radioButton_overrideProxySettings.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radioButton_overrideProxySettings.Name = "radioButton_overrideProxySettings";
-            this.radioButton_overrideProxySettings.Size = new System.Drawing.Size(576, 19);
+            this.radioButton_overrideProxySettings.Size = new System.Drawing.Size(710, 24);
             this.radioButton_overrideProxySettings.TabIndex = 1;
             this.radioButton_overrideProxySettings.TabStop = true;
             this.radioButton_overrideProxySettings.Text = "Override proxy server settings";
@@ -221,9 +239,10 @@
             // 
             this.tableLayoutPanel_proxyServer.SetColumnSpan(this.radioButton_keepProxySettings, 6);
             this.radioButton_keepProxySettings.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.radioButton_keepProxySettings.Location = new System.Drawing.Point(17, 3);
+            this.radioButton_keepProxySettings.Location = new System.Drawing.Point(22, 4);
+            this.radioButton_keepProxySettings.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radioButton_keepProxySettings.Name = "radioButton_keepProxySettings";
-            this.radioButton_keepProxySettings.Size = new System.Drawing.Size(576, 19);
+            this.radioButton_keepProxySettings.Size = new System.Drawing.Size(710, 24);
             this.radioButton_keepProxySettings.TabIndex = 0;
             this.radioButton_keepProxySettings.TabStop = true;
             this.radioButton_keepProxySettings.Text = "Keep proxy server settings";
@@ -233,9 +252,10 @@
             // label_proxyAddress
             // 
             this.label_proxyAddress.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label_proxyAddress.Location = new System.Drawing.Point(31, 50);
+            this.label_proxyAddress.Location = new System.Drawing.Point(40, 64);
+            this.label_proxyAddress.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_proxyAddress.Name = "label_proxyAddress";
-            this.label_proxyAddress.Size = new System.Drawing.Size(88, 25);
+            this.label_proxyAddress.Size = new System.Drawing.Size(108, 32);
             this.label_proxyAddress.TabIndex = 2;
             this.label_proxyAddress.Text = "Address:";
             this.label_proxyAddress.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -243,9 +263,10 @@
             // textBox_proxyAddress
             // 
             this.textBox_proxyAddress.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox_proxyAddress.Location = new System.Drawing.Point(125, 53);
+            this.textBox_proxyAddress.Location = new System.Drawing.Point(156, 68);
+            this.textBox_proxyAddress.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox_proxyAddress.Name = "textBox_proxyAddress";
-            this.textBox_proxyAddress.Size = new System.Drawing.Size(182, 22);
+            this.textBox_proxyAddress.Size = new System.Drawing.Size(225, 26);
             this.textBox_proxyAddress.TabIndex = 3;
             // 
             // groupBox_themes
@@ -253,10 +274,12 @@
             this.tableLayoutPanel_layout.SetColumnSpan(this.groupBox_themes, 16);
             this.groupBox_themes.Controls.Add(this.tableLayoutPanel_themes);
             this.groupBox_themes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox_themes.Location = new System.Drawing.Point(11, 83);
+            this.groupBox_themes.Location = new System.Drawing.Point(14, 105);
+            this.groupBox_themes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox_themes.Name = "groupBox_themes";
+            this.groupBox_themes.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel_layout.SetRowSpan(this.groupBox_themes, 4);
-            this.groupBox_themes.Size = new System.Drawing.Size(602, 142);
+            this.groupBox_themes.Size = new System.Drawing.Size(744, 180);
             this.groupBox_themes.TabIndex = 1;
             this.groupBox_themes.TabStop = false;
             this.groupBox_themes.Text = "Themes";
@@ -300,7 +323,8 @@
             this.tableLayoutPanel_themes.Controls.Add(this.pictureBox_customIconOn, 8, 2);
             this.tableLayoutPanel_themes.Controls.Add(this.pictureBox_customIconOff, 9, 2);
             this.tableLayoutPanel_themes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel_themes.Location = new System.Drawing.Point(3, 18);
+            this.tableLayoutPanel_themes.Location = new System.Drawing.Point(4, 23);
+            this.tableLayoutPanel_themes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel_themes.Name = "tableLayoutPanel_themes";
             this.tableLayoutPanel_themes.RowCount = 6;
             this.tableLayoutPanel_themes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19F));
@@ -309,15 +333,16 @@
             this.tableLayoutPanel_themes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel_themes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel_themes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 1F));
-            this.tableLayoutPanel_themes.Size = new System.Drawing.Size(596, 121);
+            this.tableLayoutPanel_themes.Size = new System.Drawing.Size(736, 153);
             this.tableLayoutPanel_themes.TabIndex = 0;
             // 
             // button_openIconOff
             // 
             this.button_openIconOff.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button_openIconOff.Location = new System.Drawing.Point(544, 97);
+            this.button_openIconOff.Location = new System.Drawing.Point(677, 123);
+            this.button_openIconOff.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button_openIconOff.Name = "button_openIconOff";
-            this.button_openIconOff.Size = new System.Drawing.Size(29, 18);
+            this.button_openIconOff.Size = new System.Drawing.Size(36, 22);
             this.button_openIconOff.TabIndex = 13;
             this.button_openIconOff.Text = "...";
             this.button_openIconOff.UseVisualStyleBackColor = true;
@@ -326,9 +351,10 @@
             // button_openIconOn
             // 
             this.button_openIconOn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button_openIconOn.Location = new System.Drawing.Point(544, 73);
+            this.button_openIconOn.Location = new System.Drawing.Point(677, 93);
+            this.button_openIconOn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button_openIconOn.Name = "button_openIconOn";
-            this.button_openIconOn.Size = new System.Drawing.Size(29, 18);
+            this.button_openIconOn.Size = new System.Drawing.Size(36, 22);
             this.button_openIconOn.TabIndex = 10;
             this.button_openIconOn.Text = "...";
             this.button_openIconOn.UseVisualStyleBackColor = true;
@@ -338,28 +364,31 @@
             // 
             this.tableLayoutPanel_themes.SetColumnSpan(this.textBox_pathIconOff, 3);
             this.textBox_pathIconOff.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox_pathIconOff.Location = new System.Drawing.Point(380, 97);
+            this.textBox_pathIconOff.Location = new System.Drawing.Point(473, 123);
+            this.textBox_pathIconOff.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox_pathIconOff.Name = "textBox_pathIconOff";
             this.textBox_pathIconOff.ReadOnly = true;
-            this.textBox_pathIconOff.Size = new System.Drawing.Size(158, 22);
+            this.textBox_pathIconOff.Size = new System.Drawing.Size(196, 26);
             this.textBox_pathIconOff.TabIndex = 12;
             // 
             // textBox_pathIconOn
             // 
             this.tableLayoutPanel_themes.SetColumnSpan(this.textBox_pathIconOn, 3);
             this.textBox_pathIconOn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox_pathIconOn.Location = new System.Drawing.Point(380, 73);
+            this.textBox_pathIconOn.Location = new System.Drawing.Point(473, 93);
+            this.textBox_pathIconOn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox_pathIconOn.Name = "textBox_pathIconOn";
             this.textBox_pathIconOn.ReadOnly = true;
-            this.textBox_pathIconOn.Size = new System.Drawing.Size(158, 22);
+            this.textBox_pathIconOn.Size = new System.Drawing.Size(196, 26);
             this.textBox_pathIconOn.TabIndex = 9;
             // 
             // label_iconOff
             // 
             this.label_iconOff.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label_iconOff.Location = new System.Drawing.Point(321, 94);
+            this.label_iconOff.Location = new System.Drawing.Point(400, 119);
+            this.label_iconOff.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_iconOff.Name = "label_iconOff";
-            this.label_iconOff.Size = new System.Drawing.Size(53, 24);
+            this.label_iconOff.Size = new System.Drawing.Size(65, 30);
             this.label_iconOff.TabIndex = 11;
             this.label_iconOff.Text = "Icon off:";
             this.label_iconOff.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -367,9 +396,10 @@
             // label_iconOn
             // 
             this.label_iconOn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label_iconOn.Location = new System.Drawing.Point(321, 70);
+            this.label_iconOn.Location = new System.Drawing.Point(400, 89);
+            this.label_iconOn.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_iconOn.Name = "label_iconOn";
-            this.label_iconOn.Size = new System.Drawing.Size(53, 24);
+            this.label_iconOn.Size = new System.Drawing.Size(65, 30);
             this.label_iconOn.TabIndex = 8;
             this.label_iconOn.Text = "Icon on:";
             this.label_iconOn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -377,9 +407,10 @@
             // label_off2
             // 
             this.label_off2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label_off2.Location = new System.Drawing.Point(496, 0);
+            this.label_off2.Location = new System.Drawing.Point(617, 0);
+            this.label_off2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_off2.Name = "label_off2";
-            this.label_off2.Size = new System.Drawing.Size(42, 22);
+            this.label_off2.Size = new System.Drawing.Size(52, 29);
             this.label_off2.TabIndex = 3;
             this.label_off2.Text = "Off";
             this.label_off2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -387,9 +418,10 @@
             // label_on2
             // 
             this.label_on2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label_on2.Location = new System.Drawing.Point(448, 0);
+            this.label_on2.Location = new System.Drawing.Point(557, 0);
+            this.label_on2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_on2.Name = "label_on2";
-            this.label_on2.Size = new System.Drawing.Size(42, 22);
+            this.label_on2.Size = new System.Drawing.Size(52, 29);
             this.label_on2.TabIndex = 2;
             this.label_on2.Text = "On";
             this.label_on2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -397,9 +429,10 @@
             // label_off1
             // 
             this.label_off1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label_off1.Location = new System.Drawing.Point(211, 0);
+            this.label_off1.Location = new System.Drawing.Point(262, 0);
+            this.label_off1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_off1.Name = "label_off1";
-            this.label_off1.Size = new System.Drawing.Size(42, 22);
+            this.label_off1.Size = new System.Drawing.Size(52, 29);
             this.label_off1.TabIndex = 1;
             this.label_off1.Text = "Off";
             this.label_off1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -407,9 +440,10 @@
             // checkBox_reverseIcons
             // 
             this.checkBox_reverseIcons.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkBox_reverseIcons.Location = new System.Drawing.Point(17, 97);
+            this.checkBox_reverseIcons.Location = new System.Drawing.Point(22, 123);
+            this.checkBox_reverseIcons.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBox_reverseIcons.Name = "checkBox_reverseIcons";
-            this.checkBox_reverseIcons.Size = new System.Drawing.Size(140, 18);
+            this.checkBox_reverseIcons.Size = new System.Drawing.Size(172, 22);
             this.checkBox_reverseIcons.TabIndex = 14;
             this.checkBox_reverseIcons.Text = "Reverse icons";
             this.checkBox_reverseIcons.UseVisualStyleBackColor = true;
@@ -419,9 +453,10 @@
             // 
             this.tableLayoutPanel_themes.SetColumnSpan(this.radioButton_customTheme, 3);
             this.radioButton_customTheme.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.radioButton_customTheme.Location = new System.Drawing.Point(307, 49);
+            this.radioButton_customTheme.Location = new System.Drawing.Point(382, 63);
+            this.radioButton_customTheme.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radioButton_customTheme.Name = "radioButton_customTheme";
-            this.radioButton_customTheme.Size = new System.Drawing.Size(135, 18);
+            this.radioButton_customTheme.Size = new System.Drawing.Size(167, 22);
             this.radioButton_customTheme.TabIndex = 7;
             this.radioButton_customTheme.TabStop = true;
             this.radioButton_customTheme.Text = "Custom";
@@ -431,9 +466,10 @@
             // radioButton_alarmTheme
             // 
             this.radioButton_alarmTheme.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.radioButton_alarmTheme.Location = new System.Drawing.Point(17, 49);
+            this.radioButton_alarmTheme.Location = new System.Drawing.Point(22, 63);
+            this.radioButton_alarmTheme.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radioButton_alarmTheme.Name = "radioButton_alarmTheme";
-            this.radioButton_alarmTheme.Size = new System.Drawing.Size(140, 18);
+            this.radioButton_alarmTheme.Size = new System.Drawing.Size(172, 22);
             this.radioButton_alarmTheme.TabIndex = 5;
             this.radioButton_alarmTheme.TabStop = true;
             this.radioButton_alarmTheme.Text = "Alarm";
@@ -444,9 +480,10 @@
             // 
             this.tableLayoutPanel_themes.SetColumnSpan(this.radioButton_trafficLightTheme, 3);
             this.radioButton_trafficLightTheme.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.radioButton_trafficLightTheme.Location = new System.Drawing.Point(307, 25);
+            this.radioButton_trafficLightTheme.Location = new System.Drawing.Point(382, 33);
+            this.radioButton_trafficLightTheme.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radioButton_trafficLightTheme.Name = "radioButton_trafficLightTheme";
-            this.radioButton_trafficLightTheme.Size = new System.Drawing.Size(135, 18);
+            this.radioButton_trafficLightTheme.Size = new System.Drawing.Size(167, 22);
             this.radioButton_trafficLightTheme.TabIndex = 6;
             this.radioButton_trafficLightTheme.TabStop = true;
             this.radioButton_trafficLightTheme.Text = "Traffic light";
@@ -456,9 +493,10 @@
             // radioButton_defaultTheme
             // 
             this.radioButton_defaultTheme.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.radioButton_defaultTheme.Location = new System.Drawing.Point(17, 25);
+            this.radioButton_defaultTheme.Location = new System.Drawing.Point(22, 33);
+            this.radioButton_defaultTheme.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radioButton_defaultTheme.Name = "radioButton_defaultTheme";
-            this.radioButton_defaultTheme.Size = new System.Drawing.Size(140, 18);
+            this.radioButton_defaultTheme.Size = new System.Drawing.Size(172, 22);
             this.radioButton_defaultTheme.TabIndex = 4;
             this.radioButton_defaultTheme.TabStop = true;
             this.radioButton_defaultTheme.Text = "Default";
@@ -468,9 +506,10 @@
             // label_on1
             // 
             this.label_on1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label_on1.Location = new System.Drawing.Point(163, 0);
+            this.label_on1.Location = new System.Drawing.Point(202, 0);
+            this.label_on1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_on1.Name = "label_on1";
-            this.label_on1.Size = new System.Drawing.Size(42, 22);
+            this.label_on1.Size = new System.Drawing.Size(52, 29);
             this.label_on1.TabIndex = 0;
             this.label_on1.Text = "On";
             this.label_on1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -479,9 +518,10 @@
             // 
             this.pictureBox_defaultIconOn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox_defaultIconOn.Image = global::ProxySwitch.Properties.Resources.networking_green_32;
-            this.pictureBox_defaultIconOn.Location = new System.Drawing.Point(163, 25);
+            this.pictureBox_defaultIconOn.Location = new System.Drawing.Point(202, 33);
+            this.pictureBox_defaultIconOn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox_defaultIconOn.Name = "pictureBox_defaultIconOn";
-            this.pictureBox_defaultIconOn.Size = new System.Drawing.Size(42, 18);
+            this.pictureBox_defaultIconOn.Size = new System.Drawing.Size(52, 22);
             this.pictureBox_defaultIconOn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox_defaultIconOn.TabIndex = 15;
             this.pictureBox_defaultIconOn.TabStop = false;
@@ -490,9 +530,10 @@
             // 
             this.pictureBox_alarmIconOn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox_alarmIconOn.Image = global::ProxySwitch.Properties.Resources.beacon_light_bw_32;
-            this.pictureBox_alarmIconOn.Location = new System.Drawing.Point(163, 49);
+            this.pictureBox_alarmIconOn.Location = new System.Drawing.Point(202, 63);
+            this.pictureBox_alarmIconOn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox_alarmIconOn.Name = "pictureBox_alarmIconOn";
-            this.pictureBox_alarmIconOn.Size = new System.Drawing.Size(42, 18);
+            this.pictureBox_alarmIconOn.Size = new System.Drawing.Size(52, 22);
             this.pictureBox_alarmIconOn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox_alarmIconOn.TabIndex = 16;
             this.pictureBox_alarmIconOn.TabStop = false;
@@ -501,9 +542,10 @@
             // 
             this.pictureBox_defaultIconOff.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox_defaultIconOff.Image = global::ProxySwitch.Properties.Resources.networking_32;
-            this.pictureBox_defaultIconOff.Location = new System.Drawing.Point(211, 25);
+            this.pictureBox_defaultIconOff.Location = new System.Drawing.Point(262, 33);
+            this.pictureBox_defaultIconOff.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox_defaultIconOff.Name = "pictureBox_defaultIconOff";
-            this.pictureBox_defaultIconOff.Size = new System.Drawing.Size(42, 18);
+            this.pictureBox_defaultIconOff.Size = new System.Drawing.Size(52, 22);
             this.pictureBox_defaultIconOff.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox_defaultIconOff.TabIndex = 17;
             this.pictureBox_defaultIconOff.TabStop = false;
@@ -512,9 +554,10 @@
             // 
             this.pictureBox_alarmIconOff.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox_alarmIconOff.Image = global::ProxySwitch.Properties.Resources.beacon_light_32;
-            this.pictureBox_alarmIconOff.Location = new System.Drawing.Point(211, 49);
+            this.pictureBox_alarmIconOff.Location = new System.Drawing.Point(262, 63);
+            this.pictureBox_alarmIconOff.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox_alarmIconOff.Name = "pictureBox_alarmIconOff";
-            this.pictureBox_alarmIconOff.Size = new System.Drawing.Size(42, 18);
+            this.pictureBox_alarmIconOff.Size = new System.Drawing.Size(52, 22);
             this.pictureBox_alarmIconOff.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox_alarmIconOff.TabIndex = 18;
             this.pictureBox_alarmIconOff.TabStop = false;
@@ -522,9 +565,10 @@
             // pictureBox_trafficLightIconOn
             // 
             this.pictureBox_trafficLightIconOn.Image = global::ProxySwitch.Properties.Resources.traffic_lights_green_32;
-            this.pictureBox_trafficLightIconOn.Location = new System.Drawing.Point(448, 25);
+            this.pictureBox_trafficLightIconOn.Location = new System.Drawing.Point(557, 33);
+            this.pictureBox_trafficLightIconOn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox_trafficLightIconOn.Name = "pictureBox_trafficLightIconOn";
-            this.pictureBox_trafficLightIconOn.Size = new System.Drawing.Size(42, 18);
+            this.pictureBox_trafficLightIconOn.Size = new System.Drawing.Size(52, 22);
             this.pictureBox_trafficLightIconOn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox_trafficLightIconOn.TabIndex = 19;
             this.pictureBox_trafficLightIconOn.TabStop = false;
@@ -533,9 +577,10 @@
             // 
             this.pictureBox_trafficLightIconOff.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox_trafficLightIconOff.Image = global::ProxySwitch.Properties.Resources.traffic_lights_red_32;
-            this.pictureBox_trafficLightIconOff.Location = new System.Drawing.Point(496, 25);
+            this.pictureBox_trafficLightIconOff.Location = new System.Drawing.Point(617, 33);
+            this.pictureBox_trafficLightIconOff.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox_trafficLightIconOff.Name = "pictureBox_trafficLightIconOff";
-            this.pictureBox_trafficLightIconOff.Size = new System.Drawing.Size(42, 18);
+            this.pictureBox_trafficLightIconOff.Size = new System.Drawing.Size(52, 22);
             this.pictureBox_trafficLightIconOff.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox_trafficLightIconOff.TabIndex = 20;
             this.pictureBox_trafficLightIconOff.TabStop = false;
@@ -543,9 +588,10 @@
             // pictureBox_customIconOn
             // 
             this.pictureBox_customIconOn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox_customIconOn.Location = new System.Drawing.Point(448, 49);
+            this.pictureBox_customIconOn.Location = new System.Drawing.Point(557, 63);
+            this.pictureBox_customIconOn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox_customIconOn.Name = "pictureBox_customIconOn";
-            this.pictureBox_customIconOn.Size = new System.Drawing.Size(42, 18);
+            this.pictureBox_customIconOn.Size = new System.Drawing.Size(52, 22);
             this.pictureBox_customIconOn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox_customIconOn.TabIndex = 21;
             this.pictureBox_customIconOn.TabStop = false;
@@ -553,9 +599,10 @@
             // pictureBox_customIconOff
             // 
             this.pictureBox_customIconOff.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox_customIconOff.Location = new System.Drawing.Point(496, 49);
+            this.pictureBox_customIconOff.Location = new System.Drawing.Point(617, 63);
+            this.pictureBox_customIconOff.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox_customIconOff.Name = "pictureBox_customIconOff";
-            this.pictureBox_customIconOff.Size = new System.Drawing.Size(42, 18);
+            this.pictureBox_customIconOff.Size = new System.Drawing.Size(52, 22);
             this.pictureBox_customIconOff.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox_customIconOff.TabIndex = 22;
             this.pictureBox_customIconOff.TabStop = false;
@@ -564,9 +611,10 @@
             // 
             this.tableLayoutPanel_layout.SetColumnSpan(this.button_ok, 3);
             this.button_ok.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button_ok.Location = new System.Drawing.Point(277, 390);
+            this.button_ok.Location = new System.Drawing.Point(343, 495);
+            this.button_ok.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button_ok.Name = "button_ok";
-            this.button_ok.Size = new System.Drawing.Size(108, 31);
+            this.button_ok.Size = new System.Drawing.Size(133, 39);
             this.button_ok.TabIndex = 3;
             this.button_ok.Text = "OK";
             this.button_ok.UseVisualStyleBackColor = true;
@@ -577,9 +625,10 @@
             this.tableLayoutPanel_layout.SetColumnSpan(this.button_cancel, 3);
             this.button_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button_cancel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button_cancel.Location = new System.Drawing.Point(391, 390);
+            this.button_cancel.Location = new System.Drawing.Point(484, 495);
+            this.button_cancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button_cancel.Name = "button_cancel";
-            this.button_cancel.Size = new System.Drawing.Size(108, 31);
+            this.button_cancel.Size = new System.Drawing.Size(133, 39);
             this.button_cancel.TabIndex = 4;
             this.button_cancel.Text = "Cancel";
             this.button_cancel.UseVisualStyleBackColor = true;
@@ -589,9 +638,10 @@
             this.tableLayoutPanel_layout.SetColumnSpan(this.button_apply, 3);
             this.button_apply.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button_apply.Enabled = false;
-            this.button_apply.Location = new System.Drawing.Point(505, 390);
+            this.button_apply.Location = new System.Drawing.Point(625, 495);
+            this.button_apply.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button_apply.Name = "button_apply";
-            this.button_apply.Size = new System.Drawing.Size(108, 31);
+            this.button_apply.Size = new System.Drawing.Size(133, 39);
             this.button_apply.TabIndex = 5;
             this.button_apply.Text = "Apply";
             this.button_apply.UseVisualStyleBackColor = true;
@@ -602,10 +652,12 @@
             this.tableLayoutPanel_layout.SetColumnSpan(this.groupBox_general, 16);
             this.groupBox_general.Controls.Add(this.tableLayoutPanel_general);
             this.groupBox_general.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox_general.Location = new System.Drawing.Point(11, 9);
+            this.groupBox_general.Location = new System.Drawing.Point(14, 11);
+            this.groupBox_general.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox_general.Name = "groupBox_general";
+            this.groupBox_general.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel_layout.SetRowSpan(this.groupBox_general, 2);
-            this.groupBox_general.Size = new System.Drawing.Size(602, 68);
+            this.groupBox_general.Size = new System.Drawing.Size(744, 86);
             this.groupBox_general.TabIndex = 0;
             this.groupBox_general.TabStop = false;
             this.groupBox_general.Text = "General";
@@ -618,35 +670,51 @@
             this.tableLayoutPanel_general.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.25F));
             this.tableLayoutPanel_general.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.25F));
             this.tableLayoutPanel_general.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.25F));
+            this.tableLayoutPanel_general.Controls.Add(this.checkBox_keepProxyServerState, 1, 1);
             this.tableLayoutPanel_general.Controls.Add(this.label_seconds, 4, 0);
             this.tableLayoutPanel_general.Controls.Add(this.textBox_refreshInterval, 3, 0);
             this.tableLayoutPanel_general.Controls.Add(this.label_refreshInterval, 2, 0);
             this.tableLayoutPanel_general.Controls.Add(this.checkBox_autoDisable, 1, 0);
             this.tableLayoutPanel_general.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel_general.Location = new System.Drawing.Point(3, 18);
+            this.tableLayoutPanel_general.Location = new System.Drawing.Point(4, 23);
+            this.tableLayoutPanel_general.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel_general.Name = "tableLayoutPanel_general";
             this.tableLayoutPanel_general.RowCount = 2;
             this.tableLayoutPanel_general.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel_general.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel_general.Size = new System.Drawing.Size(596, 47);
+            this.tableLayoutPanel_general.Size = new System.Drawing.Size(736, 59);
             this.tableLayoutPanel_general.TabIndex = 0;
             // 
             // label_seconds
             // 
             this.label_seconds.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label_seconds.Location = new System.Drawing.Point(499, 0);
+            this.label_seconds.Location = new System.Drawing.Point(618, 0);
+            this.label_seconds.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_seconds.Name = "label_seconds";
-            this.label_seconds.Size = new System.Drawing.Size(94, 23);
+            this.label_seconds.Size = new System.Drawing.Size(114, 29);
             this.label_seconds.TabIndex = 7;
             this.label_seconds.Text = "seconds";
             this.label_seconds.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label_refreshTime
+            // textBox_refreshInterval
+            // 
+            this.textBox_refreshInterval.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox_refreshInterval.Location = new System.Drawing.Point(499, 4);
+            this.textBox_refreshInterval.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox_refreshInterval.Name = "textBox_refreshInterval";
+            this.textBox_refreshInterval.Size = new System.Drawing.Size(111, 26);
+            this.textBox_refreshInterval.TabIndex = 6;
+            this.textBox_refreshInterval.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox_refreshInterval.TextPasted += new System.EventHandler<ClipboardTextBox.ClipboardEventArgs>(this.ClipboardTextBox_TextPasted);
+            this.textBox_refreshInterval.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ClipboardTextBox_KeyPress);
+            // 
+            // label_refreshInterval
             // 
             this.label_refreshInterval.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label_refreshInterval.Location = new System.Drawing.Point(307, 0);
+            this.label_refreshInterval.Location = new System.Drawing.Point(380, 0);
+            this.label_refreshInterval.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_refreshInterval.Name = "label_refreshInterval";
-            this.label_refreshInterval.Size = new System.Drawing.Size(90, 23);
+            this.label_refreshInterval.Size = new System.Drawing.Size(111, 29);
             this.label_refreshInterval.TabIndex = 2;
             this.label_refreshInterval.Text = "Refresh interval:";
             this.label_refreshInterval.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -654,45 +722,37 @@
             // checkBox_autoDisable
             // 
             this.checkBox_autoDisable.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkBox_autoDisable.Location = new System.Drawing.Point(17, 26);
+            this.checkBox_autoDisable.Location = new System.Drawing.Point(22, 4);
+            this.checkBox_autoDisable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBox_autoDisable.Name = "checkBox_autoDisable";
-            this.checkBox_autoDisable.Size = new System.Drawing.Size(284, 18);
+            this.checkBox_autoDisable.Size = new System.Drawing.Size(350, 21);
             this.checkBox_autoDisable.TabIndex = 1;
             this.checkBox_autoDisable.Text = "Disable proxy server on start up";
             this.checkBox_autoDisable.UseVisualStyleBackColor = true;
             // 
-            // textBox_proxyPort
+            // checkBox_keepProxyServerState
             // 
-            this.textBox_proxyPort.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox_proxyPort.Location = new System.Drawing.Point(407, 53);
-            this.textBox_proxyPort.Name = "textBox_proxyPort";
-            this.textBox_proxyPort.Size = new System.Drawing.Size(88, 22);
-            this.textBox_proxyPort.TabIndex = 5;
-            this.textBox_proxyPort.TextPasted += new System.EventHandler<ClipboardTextBox.ClipboardEventArgs>(this.ClipboardTextBox_TextPasted);
-            this.textBox_proxyPort.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ClipboardTextBox_KeyPress);
-            // 
-            // textBox_refreshInterval
-            // 
-            this.textBox_refreshInterval.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox_refreshInterval.Location = new System.Drawing.Point(403, 3);
-            this.textBox_refreshInterval.Name = "textBox_refreshInterval";
-            this.textBox_refreshInterval.Size = new System.Drawing.Size(90, 22);
-            this.textBox_refreshInterval.TabIndex = 6;
-            this.textBox_refreshInterval.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBox_refreshInterval.TextPasted += new System.EventHandler<ClipboardTextBox.ClipboardEventArgs>(this.ClipboardTextBox_TextPasted);
-            this.textBox_refreshInterval.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ClipboardTextBox_KeyPress);
+            this.checkBox_keepProxyServerState.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkBox_keepProxyServerState.Location = new System.Drawing.Point(22, 33);
+            this.checkBox_keepProxyServerState.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBox_keepProxyServerState.Name = "checkBox_keepProxyServerState";
+            this.checkBox_keepProxyServerState.Size = new System.Drawing.Size(350, 22);
+            this.checkBox_keepProxyServerState.TabIndex = 8;
+            this.checkBox_keepProxyServerState.Text = "Keep proxy server state";
+            this.checkBox_keepProxyServerState.UseVisualStyleBackColor = true;
             // 
             // SettingsDialog
             // 
             this.AcceptButton = this.button_ok;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.CancelButton = this.button_cancel;
-            this.ClientSize = new System.Drawing.Size(624, 441);
+            this.ClientSize = new System.Drawing.Size(780, 551);
             this.Controls.Add(this.tableLayoutPanel_layout);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SettingsDialog";
@@ -767,5 +827,6 @@
         private System.Windows.Forms.Label label_seconds;
         private ClipboardTextBox.ClipboardTextBox textBox_refreshInterval;
         private System.Windows.Forms.Label label_refreshInterval;
+        private System.Windows.Forms.CheckBox checkBox_keepProxyServerState;
     }
 }

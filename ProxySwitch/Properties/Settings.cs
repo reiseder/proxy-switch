@@ -73,9 +73,17 @@ namespace ProxySwitch.Properties
         /// Gets or sets a value indicating whether Proxy Switch will disable the proxy server on start up.
         /// </summary>
         /// <value>
-        ///   <c>True</c> if Proxy Switch will disable the proxy server on start up; otherwise, <c>false</c>.
+        ///   <c>True</c> when Proxy Switch disables the proxy server on start up; otherwise, <c>false</c>.
         /// </value>
         public bool DisableProxyOnStart { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether Proxy Switch will keep the proxy server state when it changes automatically.
+        /// </summary>
+        /// <value>
+        ///   <c>True</c> when Proxy Switch will keep the proxy server state when it changes automatically; otherwise, <c>false</c>.
+        /// </value>
+        public bool KeepProxyServerState { get; set; }
 
         /// <summary>
         /// Gets or sets the Proxy Switch theme.
@@ -288,6 +296,7 @@ namespace ProxySwitch.Properties
                         CustomIconProxyOff = settings.CustomIconProxyOff;
                         CustomIconProxyOn = settings.CustomIconProxyOn;
                         DisableProxyOnStart = settings.DisableProxyOnStart;
+                        KeepProxyServerState = settings.KeepProxyServerState;
                         OverrideProxySettings = settings.OverrideProxySettings;
                         ProxyServerAddress = settings.ProxyServerAddress;
                         ProxyServerPort = settings.ProxyServerPort;

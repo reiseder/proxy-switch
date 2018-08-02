@@ -300,6 +300,7 @@ namespace ProxySwitch.Controls
         private void LoadSettings()
         {
             checkBox_autoDisable.Checked = Settings.Instance.DisableProxyOnStart;
+            checkBox_keepProxyServerState.Checked = Settings.Instance.KeepProxyServerState;
 
             textBox_refreshInterval.Text = Settings.Instance.RefreshInterval.ToString();
 
@@ -367,6 +368,7 @@ namespace ProxySwitch.Controls
                 if (DetectChanges())
                 {
                     Settings.Instance.DisableProxyOnStart = checkBox_autoDisable.Checked;
+                    Settings.Instance.KeepProxyServerState = checkBox_keepProxyServerState.Checked;
 
                     if (string.IsNullOrWhiteSpace(textBox_refreshInterval.Text) || Convert.ToInt32(textBox_refreshInterval.Text) < 1)
                     {
@@ -478,78 +480,83 @@ namespace ProxySwitch.Controls
                 changes = true;
             else
             {
-                if (string.IsNullOrEmpty(textBox_refreshInterval.Text) || Settings.Instance.RefreshInterval != Convert.ToInt32(textBox_refreshInterval.Text))
-                {
+                if (Settings.Instance.KeepProxyServerState != checkBox_keepProxyServerState.Checked)
                     changes = true;
-                }
                 else
                 {
-                    switch (Settings.Instance.Theme)
+                    if (string.IsNullOrEmpty(textBox_refreshInterval.Text) || Settings.Instance.RefreshInterval != Convert.ToInt32(textBox_refreshInterval.Text))
                     {
-                        case Theme.Default:
-                            changes = !radioButton_defaultTheme.Checked;
-                            break;
-                        case Theme.Alarm:
-                            changes = !radioButton_alarmTheme.Checked;
-                            break;
-                        case Theme.TrafficLight:
-                            changes = !radioButton_trafficLightTheme.Checked;
-                            break;
-                        case Theme.Custom:
-                            changes = !radioButton_customTheme.Checked;
-                            break;
+                        changes = true;
                     }
-
-                    if (!changes)
+                    else
                     {
-                        if (string.IsNullOrWhiteSpace(Settings.Instance.CustomIconProxyOff) && string.IsNullOrWhiteSpace(customIconOffPath))
-                            changes = false;
-                        else if ((string.IsNullOrWhiteSpace(Settings.Instance.CustomIconProxyOff) && !string.IsNullOrWhiteSpace(customIconOffPath)) ||
-                            (!string.IsNullOrWhiteSpace(Settings.Instance.CustomIconProxyOff) && string.IsNullOrWhiteSpace(customIconOffPath)))
-                            changes = true;
-                        else
-                            changes = !Settings.Instance.CustomIconProxyOff.Split('\\').Last().Equals(customIconOffPath.Split('\\').Last());
+                        switch (Settings.Instance.Theme)
+                        {
+                            case Theme.Default:
+                                changes = !radioButton_defaultTheme.Checked;
+                                break;
+                            case Theme.Alarm:
+                                changes = !radioButton_alarmTheme.Checked;
+                                break;
+                            case Theme.TrafficLight:
+                                changes = !radioButton_trafficLightTheme.Checked;
+                                break;
+                            case Theme.Custom:
+                                changes = !radioButton_customTheme.Checked;
+                                break;
+                        }
 
                         if (!changes)
                         {
-                            if (string.IsNullOrWhiteSpace(Settings.Instance.CustomIconProxyOn) && string.IsNullOrWhiteSpace(customIconOnPath))
+                            if (string.IsNullOrWhiteSpace(Settings.Instance.CustomIconProxyOff) && string.IsNullOrWhiteSpace(customIconOffPath))
                                 changes = false;
-                            else if ((string.IsNullOrWhiteSpace(Settings.Instance.CustomIconProxyOn) && !string.IsNullOrWhiteSpace(customIconOnPath)) ||
-                                (!string.IsNullOrWhiteSpace(Settings.Instance.CustomIconProxyOn) && string.IsNullOrWhiteSpace(customIconOnPath)))
+                            else if ((string.IsNullOrWhiteSpace(Settings.Instance.CustomIconProxyOff) && !string.IsNullOrWhiteSpace(customIconOffPath)) ||
+                                (!string.IsNullOrWhiteSpace(Settings.Instance.CustomIconProxyOff) && string.IsNullOrWhiteSpace(customIconOffPath)))
                                 changes = true;
                             else
-                                changes = !Settings.Instance.CustomIconProxyOn.Split('\\').Last().Equals(customIconOnPath.Split('\\').Last());
+                                changes = !Settings.Instance.CustomIconProxyOff.Split('\\').Last().Equals(customIconOffPath.Split('\\').Last());
 
                             if (!changes)
                             {
-                                if (Settings.Instance.ReverseIcons != checkBox_reverseIcons.Checked)
+                                if (string.IsNullOrWhiteSpace(Settings.Instance.CustomIconProxyOn) && string.IsNullOrWhiteSpace(customIconOnPath))
+                                    changes = false;
+                                else if ((string.IsNullOrWhiteSpace(Settings.Instance.CustomIconProxyOn) && !string.IsNullOrWhiteSpace(customIconOnPath)) ||
+                                    (!string.IsNullOrWhiteSpace(Settings.Instance.CustomIconProxyOn) && string.IsNullOrWhiteSpace(customIconOnPath)))
                                     changes = true;
                                 else
+                                    changes = !Settings.Instance.CustomIconProxyOn.Split('\\').Last().Equals(customIconOnPath.Split('\\').Last());
+
+                                if (!changes)
                                 {
-                                    if (Settings.Instance.OverrideProxySettings != radioButton_overrideProxySettings.Checked)
+                                    if (Settings.Instance.ReverseIcons != checkBox_reverseIcons.Checked)
                                         changes = true;
                                     else
                                     {
-                                        if (string.IsNullOrWhiteSpace(Settings.Instance.ProxyServerAddress) && string.IsNullOrWhiteSpace(textBox_proxyAddress.Text))
-                                            changes = false;
-                                        else if ((string.IsNullOrWhiteSpace(Settings.Instance.ProxyServerAddress) && !string.IsNullOrWhiteSpace(textBox_proxyAddress.Text)) ||
-                                            (!string.IsNullOrWhiteSpace(Settings.Instance.ProxyServerAddress) && string.IsNullOrWhiteSpace(textBox_proxyAddress.Text)))
+                                        if (Settings.Instance.OverrideProxySettings != radioButton_overrideProxySettings.Checked)
                                             changes = true;
                                         else
-                                            changes = !Settings.Instance.ProxyServerAddress.Equals(textBox_proxyAddress.Text);
-
-                                        if (!changes)
                                         {
-                                            if (!Settings.Instance.ProxyServerPort.HasValue && string.IsNullOrWhiteSpace(textBox_proxyPort.Text))
+                                            if (string.IsNullOrWhiteSpace(Settings.Instance.ProxyServerAddress) && string.IsNullOrWhiteSpace(textBox_proxyAddress.Text))
                                                 changes = false;
-                                            else if ((!Settings.Instance.ProxyServerPort.HasValue && !string.IsNullOrWhiteSpace(textBox_proxyPort.Text)) ||
-                                                (Settings.Instance.ProxyServerPort.HasValue && string.IsNullOrWhiteSpace(textBox_proxyPort.Text)))
+                                            else if ((string.IsNullOrWhiteSpace(Settings.Instance.ProxyServerAddress) && !string.IsNullOrWhiteSpace(textBox_proxyAddress.Text)) ||
+                                                (!string.IsNullOrWhiteSpace(Settings.Instance.ProxyServerAddress) && string.IsNullOrWhiteSpace(textBox_proxyAddress.Text)))
                                                 changes = true;
                                             else
-                                                changes = Settings.Instance.ProxyServerPort.Value != Convert.ToUInt16(textBox_proxyPort.Text);
+                                                changes = !Settings.Instance.ProxyServerAddress.Equals(textBox_proxyAddress.Text);
 
                                             if (!changes)
-                                                changes = Settings.Instance.BypassProxyServer != checkBox_bypassProxyLocal.Checked;
+                                            {
+                                                if (!Settings.Instance.ProxyServerPort.HasValue && string.IsNullOrWhiteSpace(textBox_proxyPort.Text))
+                                                    changes = false;
+                                                else if ((!Settings.Instance.ProxyServerPort.HasValue && !string.IsNullOrWhiteSpace(textBox_proxyPort.Text)) ||
+                                                    (Settings.Instance.ProxyServerPort.HasValue && string.IsNullOrWhiteSpace(textBox_proxyPort.Text)))
+                                                    changes = true;
+                                                else
+                                                    changes = Settings.Instance.ProxyServerPort.Value != Convert.ToUInt16(textBox_proxyPort.Text);
+
+                                                if (!changes)
+                                                    changes = Settings.Instance.BypassProxyServer != checkBox_bypassProxyLocal.Checked;
+                                            }
                                         }
                                     }
                                 }

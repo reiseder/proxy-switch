@@ -10,6 +10,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LicenseHeaders", "LicenseHe
 		ProxySwitch.sln.licenseheader = ProxySwitch.sln.licenseheader
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{5F924A2D-EBB3-435C-86DE-CF416AB870B6}"
+	ProjectSection(SolutionItems) = preProject
+		Common\devKey.snk = Common\devKey.snk
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

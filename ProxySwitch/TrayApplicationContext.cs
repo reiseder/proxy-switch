@@ -21,6 +21,8 @@ namespace ProxySwitch
 
         private Timer refreshIconTimer;
 
+        private bool userState;
+
         #endregion
 
         #region Constructors
@@ -36,6 +38,8 @@ namespace ProxySwitch
 
             if (Settings.Instance.DisableProxyOnStart)
                 RegistryService.Instance.DisableProxyServer();
+
+            userState = RegistryService.Instance.ProxyEnabled;
 
             UpdateIcon();
             CreateRefreshIconTimer();
@@ -53,12 +57,21 @@ namespace ProxySwitch
 
         private void RefreshIconTimer_Tick(object sender, EventArgs e)
         {
+            if (Settings.Instance.KeepProxyServerState && userState != RegistryService.Instance.ProxyEnabled)
+            {
+                if (userState)
+                    RegistryService.Instance.EnableProxyServer();
+                else
+                    RegistryService.Instance.DisableProxyServer();
+            }
+
             UpdateIcon();
         }
 
         private void NotifyIcon_DoubleClick(object sender, EventArgs e)
         {
             RegistryService.Instance.ToggleProxyServer();
+            userState = RegistryService.Instance.ProxyEnabled;
             UpdateIcon();
         }
 
